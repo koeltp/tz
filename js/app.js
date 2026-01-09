@@ -26,32 +26,6 @@ const App = {
         });
     },
     
-    // 设置当前日期
-    setCurrentDate: function() {
-        const now = new Date();
-        const dateString = now.toLocaleDateString('zh-CN', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            weekday: 'long'
-        });
-        
-        const dateElements = document.querySelectorAll('#current-date, #update-date');
-        dateElements.forEach(el => {
-            if (el) el.textContent = dateString;
-        });
-        
-        // 计算当前周数
-        const startDate = new Date(now.getFullYear(), 0, 1);
-        const days = Math.floor((now - startDate) / (24 * 60 * 60 * 1000));
-        const weekNumber = Math.ceil((now.getDay() + 1 + days) / 7);
-        
-        const weekElement = document.getElementById('current-week');
-        if (weekElement) {
-            weekElement.textContent = `第${weekNumber}周`;
-        }
-    },
-    
     // 加载投资总览数据
     loadSummary: async function() {
         try {
@@ -333,8 +307,3 @@ const App = {
         };
     }
 };
-
-// 初始化通用功能
-document.addEventListener('DOMContentLoaded', function() {
-    App.setCurrentDate();
-});
