@@ -1,0 +1,26 @@
+{
+  "totalAssets": 26219.94,
+  "totalMarketValue": 8077.1,
+  "holdings": [
+    {
+      "name": "KO CALL 270115 70",
+      "weight": 18.29
+    },
+    {
+      "name": "HOOD CALL 260618 170",
+      "weight": 12.51
+    }
+  ],
+  "weeklyTransactions": [
+    {
+      "date": "2025-10-08",
+      "type": "买入",
+      "stockName": "KO CALL 270115 70"
+    },
+    {
+      "date": "2025-10-08",
+      "type": "买入",
+      "stockName": "HOOD CALL 260618 170"
+    }
+  ]
+}

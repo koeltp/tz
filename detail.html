@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP投资 - 周报详情</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header fixed-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <h1>周报详情</h1>
+            </div>
+            <div class="date-info">
+                <span id="current-date"></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-spacer"></div>
+
+    <main class="container">
+        <div class="week-header" id="week-header">
+            <!-- 将通过JS动态加载周报标题 -->
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>加载周报数据中...</span>
+            </div>
+        </div>
+
+        <section class="week-stats">
+            <h2><i class="fas fa-chart-pie"></i> 本周投资概览</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>总资产</h3>
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="stat-value" id="week-total-assets">¥1,285,000</div>
+                    <div class="stat-note">本周总资产</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>总市值</h3>
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="stat-value" id="week-market-value">¥1,185,000</div>
+                    <div class="stat-note">持仓股票市值</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>可用资金</h3>
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="stat-value" id="week-available-funds">¥100,000</div>
+                    <div class="stat-note">可交易现金</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>周度收益</h3>
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-value" id="week-change">+¥35,000</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span id="week-change-percent">+2.8%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="holdings-section">
+            <div class="section-header">
+                <h2><i class="fas fa-boxes"></i> 本周持仓概览</h2>
+                <span class="badge" id="holdings-count">10 只股票</span>
+            </div>
+            
+            <div class="holdings-list-container">
+                <div class="holdings-list" id="holdings-list">
+                    <!-- 持仓数据将通过JS动态加载 -->
+                </div>
+            </div>
+        </section>
+
+        <section class="transactions-section">
+            <div class="section-header">
+                <h2><i class="fas fa-exchange-alt"></i> 本周交易记录</h2>
+                <span class="badge" id="transactions-count">4 笔交易</span>
+            </div>
+            
+            <div class="table-container">
+                <table id="transactions-table">
+                    <thead>
+                        <tr>
+                            <th>日期</th>
+                            <th>类型</th>
+                            <th>股票</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactions-list">
+                        <!-- 交易数据将通过JS动态加载 -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="navigation-buttons">
+            <a href="#" class="nav-btn prev-btn" id="prev-week-btn">
+                <i class="fas fa-chevron-left"></i>
+                <span>上一周</span>
+            </a>
+            <a href="#" class="nav-btn next-btn" id="next-week-btn">
+                <span>下一周</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/detail.js"></script>
+     <script src="js/footer.js"></script>
+</body>
+</html>

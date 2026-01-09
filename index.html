@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP投资 - 股票投资周报列表</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <h1>TP投资 - 股票周报</h1>
+            </div>
+            <div class="date-info">
+                <span id="current-date"></span>
+                <span class="week" id="current-week"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="dashboard">
+            <h2><i class="fas fa-tachometer-alt"></i> 投资总览</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>初始资金</h3>
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="stat-value" id="initial-investment">¥1,000,000</div>
+                    <div class="stat-note">最初投入资金</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>当前总资产</h3>
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="stat-value" id="total-assets">¥1,285,000</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span id="total-change">+28.5%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>累计收益</h3>
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="stat-value" id="total-return">¥285,000</div>
+                    <div class="stat-note">从开始至今</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="weekly-reports-section">
+            <h2><i class="fas fa-calendar-week"></i> 投资周报列表</h2>
+            
+            <div class="reports-list" id="reports-list">
+                <!-- 周报数据将通过JS动态加载 -->
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>加载周报数据中...</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+           
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/list.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>
