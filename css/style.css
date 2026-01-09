@@ -275,7 +275,7 @@ h2 i {
     background-color: white;
     border-radius: var(--border-radius);
     padding: 30px;
-    margin-top: 140px;
+    margin-top: 130px;
     margin-bottom: 30px;
     box-shadow: var(--box-shadow);
     text-align: center;
@@ -346,7 +346,7 @@ thead {
 }
 
 th {
-    padding: 16px 12px;
+    padding: 16px 5px;
     text-align: left;
     font-weight: 600;
 }
@@ -361,26 +361,22 @@ tbody tr:hover {
 }
 
 td {
-    padding: 16px 12px;
+    padding: 5px;
 }
 
 /* 交易类型徽章 */
 .badge {
     display: inline-block;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    padding: 0px;
+   
 }
 
 .badge.buy {
-    background-color: var(--danger-color);
-    color: white;
+    color:  var(--danger-color);
 }
 
 .badge.sell {
-    background-color: var(--success-color);
-    color: white;
+    color: var(--success-color);
 }
 
 /* 导航按钮 */
