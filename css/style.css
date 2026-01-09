@@ -66,7 +66,13 @@ body {
 }
 
 .logo .logo-image {
-    width: 36px;
+    width: 48px;
+}
+
+.logo h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #01bef3;
 }
 
 /* 返回链接 */
@@ -491,7 +497,19 @@ td {
     max-width: 800px;
     margin: 0 auto;
 }
-
+.friend-link {
+    font-size: 0.9rem;
+    color: #bdc3c7;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.friend-link a {
+    color: #bdc3c7;
+    text-decoration:none;
+}
+.friend-link a:hover {
+    color: #27ae60;
+}
 .runtime-counter {
     margin-top: 10px;
     font-size: 0.9rem;

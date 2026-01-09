@@ -9,14 +9,15 @@
             // 创建页脚内容
             footerElement.innerHTML = `
                 <div class="footer-info">
-                    <p>© 2023-2024 TP投资 - 股票投资周报系统</p>
-                    <p class="disclaimer">本报告仅供参考，不构成投资建议。投资有风险，入市需谨慎。</p>
+                    <p>© 2026 TP投资 - 股票投资周报</p>    
                     <div class="runtime-counter" id="runtime-counter">
                         小破站已运行 <span class="time-unit days" id="days">0</span> 天 
                         <span class="time-unit hours" id="hours">0</span> 时 
                         <span class="time-unit minutes" id="minutes">0</span> 分 
                         <span class="time-unit seconds" id="seconds">0</span> 秒
                     </div>
+                    <p class="friend-link">友情链接：<a href="https://nav.taipi.top" target="_blank">太皮导航</a> | <a href="https://tools.taipi.top" target="_blank">太皮工具箱</a> | <a href="https://www.byteepoch.com/" target="_blank">字节时代</a> | <a href="https://tools.taipi.top" target="_blank">太皮工具箱</a> | <a href="https://nov.dev" target="_blank">NOV</a></p>
+                    <p class="disclaimer">本报告仅供参考，不构成投资建议。投资有风险，入市需谨慎。</p>
                 </div>
             `;
             
