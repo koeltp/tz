@@ -5,8 +5,8 @@ const App = {
         return new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
         }).format(value);
     },
     
@@ -42,7 +42,7 @@ const App = {
             
             if (!data.startDate) {
                 // 如果没有起始日期，使用默认值
-                data.startDate = "2024-10-07";
+                data.startDate = "2026-01-08";
             }
             
             return data;
