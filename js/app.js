@@ -302,8 +302,8 @@ const App = {
     // 示例投资总览数据（备用）
     getSampleSummary: function() {
         return {
-            initialInvestment: 1000000,
-            startDate: "2024-10-07"
+            initialInvestment: 25377.78,
+            startDate: "2026-01-08"
         };
     }
 };
