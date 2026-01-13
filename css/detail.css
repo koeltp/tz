@@ -207,7 +207,7 @@
     /* 中等屏幕下调整表格列宽 */
     .transactions-table th:nth-child(1),
     .transactions-table td:nth-child(1) {
-        width: 100px;
+        width: 130px;
     }
 }
 
@@ -255,7 +255,7 @@
     
     .transactions-table th:nth-child(1),
     .transactions-table td:nth-child(1) {
-        width: 90px;
+        width: 100px;
     }
     
     .transactions-table th:nth-child(2),
