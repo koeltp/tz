@@ -3,7 +3,7 @@
     background-color: white;
     border-radius: var(--border-radius);
     padding: 30px;
-    margin-top: 130px;
+    margin-top: 130px; /* 减少上边距 */
     margin-bottom: 30px;
     box-shadow: var(--box-shadow);
     text-align: center;
