@@ -37,7 +37,7 @@ const App = {
             
             // 确保数据格式正确
             if (!data.initialInvestment) {
-                data.initialInvestment = 1000000;
+                data.initialInvestment = 25377.78;
             }
             
             if (!data.startDate) {
