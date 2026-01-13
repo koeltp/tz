@@ -103,3 +103,109 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* 投资语录样式 - 首页专用 */
+.quotes-section {
+    margin: 40px 0;
+}
+
+.refresh-quote {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.refresh-quote:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(41, 128, 185, 0.3);
+}
+
+.refresh-quote i {
+    font-size: 0.9rem;
+}
+
+.refresh-quote.clicked {
+    animation: rotate 0.3s ease;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.quote-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+    position: relative;
+    border-left: 4px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.quote-content {
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-style: italic;
+    position: relative;
+    padding-left: 20px;
+}
+
+.quote-content::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 3rem;
+    color: var(--secondary-color);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+.quote-author {
+    text-align: right;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.quote-author::before {
+    content: '— ';
+    color: var(--secondary-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .quote-card {
+        padding: 20px;
+    }
+    
+    .quote-content {
+        font-size: 1rem;
+        padding-left: 15px;
+    }
+    
+    .quote-content::before {
+        font-size: 2.5rem;
+        top: -8px;
+    }
+}
