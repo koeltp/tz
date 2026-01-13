@@ -168,11 +168,12 @@
         text-align: left;
         padding-right: 0;
         padding-bottom: 15px;
+        margin-left: 25px;
     }
     
     .timeline-point {
-        left: 20px;
-        top: 30px;
+        left: 0px;
+        top: 15px;
         transform: translate(-50%, 0);
     }
     
@@ -193,7 +194,7 @@
     
     .timeline-content::after {
         left: -30px;
-        top: 20px;
+        top: 29px;
         transform: translateY(0);
     }
     
