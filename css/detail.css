@@ -105,7 +105,7 @@
 /* 为不同列设置合适的宽度 */
 .transactions-table th:nth-child(1), /* 日期列 */
 .transactions-table td:nth-child(1) {
-    width: 120px; /* 固定宽度 */
+    width: 130px; /* 固定宽度 */
     min-width: 100px;
 }
 
