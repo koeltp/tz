@@ -1,10 +1,17 @@
 {
-  "totalAssets": 27009.49,
-  "totalMarketValue": 10966.99,
+  "totalAssets": 27632.46,
+  "totalMarketValue": 6100.00,
   "holdings": [
-    
+    {
+      "name": "HOOD CALL 260618 170",
+      "weight": 22.08
+    }
   ],
   "weeklyTransactions": [
-    
+    {
+      "date": "2026-01-13",
+      "type": "卖出",
+      "stockName": "KO CALL 270115 70"
+    }
   ]
 }
