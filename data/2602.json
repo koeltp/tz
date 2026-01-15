@@ -1,10 +1,18 @@
 {
-  "totalAssets": 27632.46,
-  "totalMarketValue": 6100.00,
+  "totalAssets": 27506.54,
+  "totalMarketValue": 15044.49,
   "holdings": [
     {
       "name": "HOOD CALL 260618 170",
       "weight": 22.08
+    },
+    {
+      "name": "NFLX CALL 260417 100",
+      "weight": 13.09
+    },
+    {
+      "name": "NFLX",
+      "weight": 19.38
     }
   ],
   "weeklyTransactions": [
@@ -12,6 +20,16 @@
       "date": "2026-01-13",
       "type": "卖出",
       "stockName": "KO CALL 270115 70"
+    },
+    {
+      "date":"2026-01-14"
+      "type": "买入",
+      "stockName": "NFLX CALL 260417 100"
+    },
+    {
+      "date":"2026-01-14"
+      "type": "买入",
+      "stockName": "NFLX"
     }
   ]
 }
