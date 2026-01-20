@@ -1,4 +1,26 @@
 /* 周报详情页样式 */
+
+/* 评论区样式 */
+.comments-section {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: var(--box-shadow);
+}
+
+.comments-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#giscus-container {
+    margin-top: 20px;
+}
 .week-header {
     background-color: white;
     border-radius: var(--border-radius);

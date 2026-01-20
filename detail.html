@@ -163,6 +163,12 @@
                 <i class="fas fa-chevron-right"></i>
             </a>
         </div>
+
+        <!-- 评论系统 -->
+        <section class="comments-section">
+            <h2><i class="fas fa-comments"></i> 评论区</h2>
+            <div id="giscus-container"></div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -174,5 +180,37 @@
     <script src="js/detail.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/nav.js"></script>
+
+    <!-- Giscus评论系统 -->
+    <script>
+        // 注意：使用前需要完成以下配置：
+        // 1. 在GitHub上安装Giscus应用
+        // 2. 确保仓库已启用Discussions
+        // 3. 配置仓库ID和主题
+        // 详细配置请访问：https://giscus.app/
+        
+        (function() {
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', 'koeltp/tz'); // 替换为你的GitHub仓库
+            script.setAttribute('data-repo-id', 'R_kgDOQ2cxwQ'); // 替换为你的仓库ID
+            script.setAttribute('data-category', 'General'); // 替换为你的讨论类别
+            script.setAttribute('data-category-id', 'DIC_kwDOQ2cxwc4C1MYD'); // 替换为你的类别ID
+            script.setAttribute('data-mapping', 'pathname');
+            script.setAttribute('data-strict', '0');
+            script.setAttribute('data-reactions-enabled', '1');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'bottom');
+            script.setAttribute('data-theme', 'light');
+            script.setAttribute('data-lang', 'zh-CN');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.async = true;
+            
+            const container = document.getElementById('giscus-container');
+            if (container) {
+                container.appendChild(script);
+            }
+        })();
+    </script>
 </body>
 </html>
