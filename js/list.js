@@ -100,9 +100,14 @@ function renderReportsList(reports) {
             weeklyChange = App.calculateWeeklyChange(report, previousReport);
         }
         
-        reportElement.innerHTML = `
+        // 使用<a>标签替代div点击事件，优化SEO
+        const aTag = document.createElement('a');
+        aTag.href = `detail.html?id=${report.id}`;
+        aTag.className = 'report-link';
+        
+        aTag.innerHTML = `
             <div>
-                <div class="report-title">${report.year}年第${report.weekNumber}周</div>
+                <div class="report-title">${report.year}年第${report.weekNumber}周投资周报</div>
                 <div class="report-date">${formattedStartDate} - ${formattedEndDate}</div>
             </div>
             
@@ -120,10 +125,7 @@ function renderReportsList(reports) {
             </div>
         `;
         
-        // 点击整个卡片进入详情
-        reportElement.addEventListener('click', function() {
-            window.location.href = `detail.html?id=${report.id}`;
-        });
+        reportElement.appendChild(aTag);
         
         reportsList.appendChild(reportElement);
     });

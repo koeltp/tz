@@ -101,6 +101,9 @@ function updateWeekHeader(report) {
         <h1 class="week-title">${report.year}年第${report.weekNumber}周投资周报</h1>
         <p class="week-subtitle">${formattedStartDate} - ${formattedEndDate}</p>
     `;
+    
+    // 更新页面标题，使其包含具体的周报信息
+    document.title = `${report.year}年第${report.weekNumber}周投资周报 - TP投资`;
 }
 
 // 更新周度统计

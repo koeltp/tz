@@ -3,19 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TP投资 - 投资时光机</title>
-    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
-    <link rel="keyword" content="投资时光机, 时间线, 投资历程, TP投资" />
-    <link
-      rel="description"
-      content="TP投资时光机，记录投资历程中的重要时间点和里程碑。"
+    <title>TP投资时光机 - 投资历程记录与时间线分析</title>
+    <link rel="icon" href="images/logo.png" type="image/x-icon" />
+    <meta name="keywords" content="投资时光机, 时间线, 投资历程, TP投资" />
+    <meta
+      name="description"
+      content="TP投资时光机，全面记录投资历程中的重要时间点、里程碑和投资策略演变，助您深入了解投资轨迹。"
     />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK7GS5KGYF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-PK7GS5KGYF');
+    </script>
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/timeline.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+    </noscript>
     <script
       charset="UTF-8"
       id="LA_COLLECT"
@@ -37,7 +54,7 @@
         <div class="logo">
           <a href="index.html">
             <img src="images/logo.png" alt="TP投资 Logo" class="logo-image" />
-            <h1>TP投资</h1>
+            <div class="logo-text">TP投资</div>
           </a>
         </div>
 

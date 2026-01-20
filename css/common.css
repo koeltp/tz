@@ -71,7 +71,8 @@ body {
     width: 48px;
 }
 
-.logo h1 {
+.logo h1,
+.logo .logo-text {
     font-size: 1.6rem;
     font-weight: 700;
     color: #01bef3;
@@ -477,7 +478,8 @@ h2 i {
         grid-template-columns: 1fr;
     }
     
-    .logo h1 {
+    .logo h1,
+    .logo .logo-text {
         font-size: 1.4rem;
     }
 }
