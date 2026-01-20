@@ -1,0 +1,220 @@
+/* 周报列表样式 */
+.weekly-reports-section {
+    margin-bottom: 40px;
+}
+
+.reports-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.report-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.report-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.report-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--secondary-color);
+}
+
+.report-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.report-date {
+    color: var(--gray-color);
+    font-size: 0.9rem;
+}
+
+.report-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.report-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.report-stat:last-child {
+    border-bottom: none;
+}
+
+.report-stat-label {
+    font-size: 0.95rem;
+    color: var(--gray-color);
+}
+
+.report-stat-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.report-stat-value.positive {
+    color: var(--success-color);
+}
+
+.report-stat-value.negative {
+    color: var(--danger-color);
+}
+
+.view-all {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s;
+}
+
+.view-all:hover {
+    color: #2980b9;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .reports-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .report-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 投资语录样式 - 首页专用 */
+.quotes-section {
+    margin: 40px 0;
+}
+
+.refresh-quote {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.refresh-quote:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(41, 128, 185, 0.3);
+}
+
+.refresh-quote i {
+    font-size: 0.9rem;
+}
+
+.refresh-quote.clicked {
+    animation: rotate 0.3s ease;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.quote-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+    position: relative;
+    border-left: 4px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.quote-content {
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-style: italic;
+    position: relative;
+    padding-left: 20px;
+}
+
+.quote-content::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 3rem;
+    color: var(--secondary-color);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+.quote-author {
+    text-align: right;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.quote-author::before {
+    content: '— ';
+    color: var(--secondary-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .quote-card {
+        padding: 20px;
+    }
+    
+    .quote-content {
+        font-size: 1rem;
+        padding-left: 15px;
+    }
+    
+    .quote-content::before {
+        font-size: 2.5rem;
+        top: -8px;
+    }
+}
