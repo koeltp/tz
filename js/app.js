@@ -26,6 +26,19 @@ const App = {
         });
     },
     
+    // 格式化日期时间（带时分秒）
+    formatDateTime: function(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleString('zh-CN', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+    },
+    
     // 加载投资总览数据
     loadSummary: async function() {
         try {

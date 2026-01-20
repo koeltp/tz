@@ -49,6 +49,12 @@
     font-size: 0.9rem;
 }
 
+.report-update-date {
+    color: var(--secondary-color);
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
 .report-stats {
     display: flex;
     flex-direction: column;

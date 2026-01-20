@@ -109,6 +109,7 @@ function renderReportsList(reports) {
             <div>
                 <div class="report-title">${report.year}年第${report.weekNumber}周投资周报</div>
                 <div class="report-date">${formattedStartDate} - ${formattedEndDate}</div>
+                <div class="report-update-date">更新日期：${App.formatDateTime(report.updateDate)}</div>
             </div>
             
             <div class="report-stats">
