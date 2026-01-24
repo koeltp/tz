@@ -17,15 +17,5 @@
     }
   ],
   "weeklyTransactions": [
-    {
-      "date": "2026-01-20",
-      "type": "买入",
-      "stockName": "HOOD CALL 260618 170"
-    },
-    {
-      "date": "2026-01-21",
-      "type": "买入",
-      "stockName": "FLX CALL 260417 100"
-    }
   ]
 }
