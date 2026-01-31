@@ -5,22 +5,17 @@
   "holdings": [
     {
       "name": "HOOD CALL 260618 170",
-      "weight": 30.04
+      "weight": 35.13
     },
     {
       "name": "NFLX CALL 260417 100",
-      "weight": 17.25
+      "weight": 13.17
     },
     {
       "name": "NFLX",
-      "weight": 29.02
+      "weight": 25.69
     }
   ],
   "weeklyTransactions": [
-    {
-      "date": "2026-01-29",
-      "type": "买入",
-      "stockName": "NFLX CALL 260417 100"
-    }
   ]
 }
