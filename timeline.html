@@ -75,53 +75,32 @@
               <span>时光机</span>
             </a>
           </li>
+          <li class="header-nav-item dropdown">
+            <a href="#" class="header-nav-link dropdown-toggle">
+              <i class="fas fa-exchange-alt"></i>
+              <span id="current-source">TP投资</span>
+              <i class="fas fa-chevron-down dropdown-arrow"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- 下拉菜单选项将通过JS动态加载 -->
+            </ul>
+          </li>
         </ul>
       </div>
     </header>
 
     <main class="container">
       <section class="timeline-header">
-        <h1><i class="fas fa-hourglass-half"></i> TP投资时光机</h1>
+        <h1><i class="fas fa-hourglass-half"></i></h1>
         <p class="timeline-subtitle">记录投资历程中的重要时刻与里程碑</p>
       </section>
 
       <section class="timeline-section">
         <div class="timeline">
-          <!-- 时间线项目1 - 最新的在上面 -->
-          <div class="timeline-item">
-            <div class="timeline-date">
-              <span class="date-badge">2026-01-09</span>
-            </div>
-            <div class="timeline-point"></div>
-            <div class="timeline-content">
-              <p class="timeline-description">
-                第一份投资周报发布，总资产达到 $26,863.19 元。 周度收益
-                +$1,485.41，收益率 +5.85%，首战告捷！
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">
-              <span class="date-badge">2026-01-09</span>
-            </div>
-            <div class="timeline-point"></div>
-            <div class="timeline-content">
-              <p class="timeline-description">
-                投资周报系统正式上线，开启每周定期公布投资盈亏和交易记录等相关数据。
-              </p>
-            </div>
-          </div>
-          <!-- 时间线项目2 - 较早的在下面 -->
-          <div class="timeline-item">
-            <div class="timeline-date">
-              <span class="date-badge">2026-01-08</span>
-            </div>
-            <div class="timeline-point"></div>
-            <div class="timeline-content">
-              <p class="timeline-description">
-                TP投资在香港荃湾正式成立，启动资金 $25,377.78 元。
-              </p>
-            </div>
+          <!-- timeline数据将通过JS动态加载 -->
+          <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>加载时光机数据中...</span>
           </div>
         </div>
       </section>
@@ -133,7 +112,10 @@
       </div>
     </footer>
 
+    <script src="js/app.js"></script>
+    <script src="js/source-switcher.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/timeline.js"></script>
   </body>
 </html>

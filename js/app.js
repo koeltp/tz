@@ -1,10 +1,50 @@
 // 通用工具函数
 const App = {
+    // 当前数据源（从site.json中读取）
+    currentSource: null,
+    
+    // 站点配置
+    siteConfig: null,
+    
+    // 初始化站点配置
+    initSiteConfig: async function() {
+        try {
+            const response = await fetch('data/site.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            this.siteConfig = await response.json();
+            console.log('Site config loaded:', this.siteConfig);
+        } catch (error) {
+            console.error('加载站点配置失败:', error);
+        }
+    },
+    
+    // 获取当前货币
+    getCurrentCurrency: function() {
+        if (!this.siteConfig || !this.siteConfig.sources) {
+            return 'USD';
+        }
+        const source = this.siteConfig.sources.find(s => s.id === this.currentSource);
+        return source ? source.currency : 'USD';
+    },
+    
+    // 获取当前数据源名称
+    getCurrentSourceName: function() {
+        if (!this.siteConfig || !this.siteConfig.sources) {
+            return 'TP投资';
+        }
+        const source = this.siteConfig.sources.find(s => s.id === this.currentSource);
+        return source ? source.sitename : 'TP投资';
+    },
+    
     // 格式化货币
     formatCurrency: function(value) {
-        return new Intl.NumberFormat('en-US', {
+        const currency = this.getCurrentCurrency();
+        const locale = currency === 'CNY' ? 'zh-CN' : 'en-US';
+        return new Intl.NumberFormat(locale, {
             style: 'currency',
-            currency: 'USD',
+            currency: currency,
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
         }).format(value);
@@ -39,29 +79,94 @@ const App = {
         });
     },
     
+    // 获取当前数据源
+    getCurrentSource: function() {
+        return this.currentSource;
+    },
+    
+    // 切换数据源
+    switchSource: function(source) {
+        if (!this.siteConfig || !this.siteConfig.sources) {
+            console.error('站点配置未加载');
+            return;
+        }
+        
+        const validSource = this.siteConfig.sources.find(s => s.id === source);
+        if (validSource) {
+            this.currentSource = source;
+            // 保存到localStorage
+            localStorage.setItem('currentSource', source);
+            // 更新页面显示
+            this.updateSourceDisplay();
+            // 重新加载页面数据
+            window.location.reload();
+        } else {
+            console.error('无效的数据源:', source);
+        }
+    },
+    
+    // 更新数据源显示
+    updateSourceDisplay: function() {
+        const currentSourceElement = document.getElementById('current-source');
+        if (currentSourceElement) {
+            const sourceName = this.getCurrentSourceName();
+            currentSourceElement.textContent = sourceName;
+        }
+        
+        // 更新下拉菜单的激活状态
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            const itemSource = item.getAttribute('data-source');
+            if (itemSource === this.currentSource) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    },
+    
+    // 从localStorage加载数据源
+    loadSourceFromStorage: async function() {
+        const savedSource = localStorage.getItem('currentSource');
+        if (savedSource) {
+            if (!this.siteConfig || !this.siteConfig.sources) {
+                await this.initSiteConfig();
+            }
+            const validSource = this.siteConfig.sources.find(s => s.id === savedSource);
+            if (validSource) {
+                this.currentSource = savedSource;
+            } else {
+                // 如果保存的数据源无效，使用默认数据源
+                this.currentSource = this.siteConfig.defaultSource || this.siteConfig.sources[0].id;
+            }
+        } else {
+            // 如果没有保存的数据源，使用默认数据源
+            if (!this.siteConfig || !this.siteConfig.sources) {
+                await this.initSiteConfig();
+            }
+            this.currentSource = this.siteConfig.defaultSource || this.siteConfig.sources[0].id;
+        }
+        this.updateSourceDisplay();
+    },
+    
     // 加载投资总览数据
     loadSummary: async function() {
         try {
-            const response = await fetch('summary.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            
-            // 确保数据格式正确
-            if (!data.initialInvestment) {
-                data.initialInvestment = 25377.78;
+            if (!this.siteConfig || !this.siteConfig.sources) {
+                await this.initSiteConfig();
             }
             
-            if (!data.startDate) {
-                // 如果没有起始日期，使用默认值
-                data.startDate = "2026-01-08";
+            const source = this.siteConfig.sources.find(s => s.id === this.currentSource);
+            if (!source) {
+                throw new Error(`Source ${this.currentSource} not found`);
             }
             
-            return data;
+            return {
+                initialInvestment: source.initialInvestment,
+                startDate: source.startDate
+            };
         } catch (error) {
             console.error('加载投资总览失败:', error);
-            return this.getSampleSummary();
         }
     },
     
@@ -172,7 +277,7 @@ const App = {
     // 加载指定周报数据
     loadWeeklyReport: async function(weekId) {
         try {
-            const response = await fetch(`data/${weekId}.json`);
+            const response = await fetch(`data/${this.currentSource}/${weekId}.json`);
             if (!response.ok) {
                 // 如果文件不存在，返回null
                 if (response.status === 404) {
@@ -311,12 +416,4 @@ const App = {
             percent: percent
         };
     },
-    
-    // 示例投资总览数据（备用）
-    getSampleSummary: function() {
-        return {
-            initialInvestment: 25377.78,
-            startDate: "2026-01-08"
-        };
-    }
 };

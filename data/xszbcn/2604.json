@@ -1,0 +1,21 @@
+{
+  "totalAssets": 502831.31,
+  "totalMarketValue": 501752,
+  "updateDate": "2026-2-08 14:16:15",
+  "holdings": [
+    {
+      "name": "海陆重工",
+      "weight": 0.2
+    },
+    {
+      "name": "老板电器",
+      "weight": 12.4
+    },
+    {
+      "name": "口子窖",
+      "weight": 87.2
+    }
+  ],
+  "weeklyTransactions": [
+  ]
+}

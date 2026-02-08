@@ -156,7 +156,7 @@ function updateHoldingsList(holdings) {
         holdingElement.className = 'holding-item';
         holdingElement.innerHTML = `
             <span class="holding-name">${holding.name}</span>
-            <span class="holding-weight">${holding.weight.toFixed(1)}%</span>
+            <span class="holding-weight">${holding.weight.toFixed(2)}%</span>
         `;
         
         holdingsList.appendChild(holdingElement);
