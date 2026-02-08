@@ -6,18 +6,35 @@ const App = {
     // 站点配置
     siteConfig: null,
     
+    // 初始化Promise缓存
+    _initSiteConfigPromise: null,
+    
     // 初始化站点配置
     initSiteConfig: async function() {
-        try {
-            const response = await fetch('data/site.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            this.siteConfig = await response.json();
-            console.log('Site config loaded:', this.siteConfig);
-        } catch (error) {
-            console.error('加载站点配置失败:', error);
+        if (this.siteConfig) {
+            return this.siteConfig;
         }
+        
+        if (this._initSiteConfigPromise) {
+            return this._initSiteConfigPromise;
+        }
+        
+        this._initSiteConfigPromise = (async () => {
+            try {
+                const response = await fetch('data/site.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                this.siteConfig = await response.json();
+                console.log('Site config loaded:', this.siteConfig);
+                return this.siteConfig;
+            } catch (error) {
+                console.error('加载站点配置失败:', error);
+                throw error;
+            }
+        })();
+        
+        return this._initSiteConfigPromise;
     },
     
     // 获取当前货币
@@ -131,11 +148,18 @@ const App = {
     
     // 从localStorage加载数据源
     loadSourceFromStorage: async function() {
+        // 确保siteConfig已加载
+        if (!this.siteConfig || !this.siteConfig.sources) {
+            await this.initSiteConfig();
+            // 如果初始化失败，返回错误
+            if (!this.siteConfig || !this.siteConfig.sources) {
+                console.error('站点配置初始化失败，无法加载数据源');
+                return false;
+            }
+        }
+        
         const savedSource = localStorage.getItem('currentSource');
         if (savedSource) {
-            if (!this.siteConfig || !this.siteConfig.sources) {
-                await this.initSiteConfig();
-            }
             const validSource = this.siteConfig.sources.find(s => s.id === savedSource);
             if (validSource) {
                 this.currentSource = savedSource;
@@ -145,12 +169,10 @@ const App = {
             }
         } else {
             // 如果没有保存的数据源，使用默认数据源
-            if (!this.siteConfig || !this.siteConfig.sources) {
-                await this.initSiteConfig();
-            }
             this.currentSource = this.siteConfig.defaultSource || this.siteConfig.sources[0].id;
         }
         this.updateSourceDisplay();
+        return true;
     },
     
     // 加载投资总览数据

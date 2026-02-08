@@ -5,7 +5,7 @@ const SourceSwitcher = {
         await App.initSiteConfig();
         
         // 从localStorage加载数据源
-        App.loadSourceFromStorage();
+        await App.loadSourceFromStorage();
         
         // 动态生成下拉菜单选项
         this.generateDropdownMenu();

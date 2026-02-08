@@ -1,11 +1,11 @@
-/* 有限合伙人页面样式 */
-.lp-header {
+/* Partner页面样式 */
+.partner-header {
     text-align: center;
     padding: 40px 0 30px;
     margin-top: 20px;
 }
 
-.lp-subtitle {
+.partner-subtitle {
     font-size: 1.2rem;
     color: var(--gray-color);
     max-width: 600px;
@@ -52,12 +52,12 @@
     box-shadow: 0 0 0 3px rgba(1, 190, 243, 0.2);
 }
 
-/* LP列表样式 */
-.lp-section {
+/* Partner列表样式 */
+.partner-section {
     padding: 40px 0;
 }
 
-.lp-list {
+.partner-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
@@ -66,8 +66,8 @@
     justify-content: center;
 }
 
-/* LP卡片样式 */
-.lp-card {
+/* Partner卡片样式 */
+.partner-card {
     background-color: white;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -77,14 +77,14 @@
     border: 1px solid var(--light-color);
 }
 
-.lp-card:hover {
+.partner-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     border-color: var(--accent-color);
 }
 
 /* 头像样式 */
-.lp-avatar {
+.partner-avatar {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -98,39 +98,39 @@
     transition: all 0.3s ease;
 }
 
-.lp-card:hover .lp-avatar {
+.partner-card:hover .partner-avatar {
     border-color: var(--accent-color);
     transform: scale(1.05);
 }
 
-.lp-avatar img {
+.partner-avatar img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* LP信息 */
-.lp-name {
+/* Partner信息 */
+.partner-name {
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--dark-color);
     margin-bottom: 10px;
 }
 
-.lp-role {
+.partner-role {
     font-size: 1rem;
     color: var(--gray-color);
     margin-bottom: 15px;
 }
 
-.lp-investment {
+.partner-investment {
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--accent-color);
     margin-bottom: 10px;
 }
 
-.lp-join-date {
+.partner-join-date {
     font-size: 0.9rem;
     color: var(--gray-color);
 }
@@ -188,53 +188,36 @@
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .lp-header {
+    .partner-header {
         padding: 30px 0 20px;
     }
     
-    .lp-filters {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    .filter-group {
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-    }
-    
-    .lp-list {
+    .partner-list {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 0 20px;
     }
     
-    .lp-card {
+    .partner-card {
         padding: 20px;
     }
     
-    .lp-avatar {
+    .partner-avatar {
         width: 80px;
         height: 80px;
     }
     
-    .lp-name {
+    .partner-name {
         font-size: 1.2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .lp-header h1 {
+    .partner-header h1 {
         font-size: 1.8rem;
     }
     
-    .lp-subtitle {
+    .partner-subtitle {
         font-size: 1rem;
-    }
-    
-    .form-select {
-        width: 100%;
-        max-width: 200px;
     }
 }

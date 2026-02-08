@@ -54,27 +54,21 @@ function highlightActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop();
     const navLinks = document.querySelectorAll('.header-nav-link');
     
+    const pageToNavMap = {
+        'index.html': 'index.html',
+        '': 'index.html',
+        'detail.html': 'index.html',
+        'timeline.html': 'timeline.html',
+        'partner.html': 'partner.html'
+    };
+    
+    const activeHref = pageToNavMap[currentPage];
+    
     navLinks.forEach(link => {
-        // 移除所有active类
         link.classList.remove('active');
         
-        // 首页特殊处理
-        if (currentPage === 'index.html' || currentPage === '') {
-            if (link.getAttribute('href') === 'index.html') {
-                link.classList.add('active');
-            }
-        }
-        // 详情页时高亮首页
-        else if (currentPage === 'detail.html') {
-            if (link.getAttribute('href') === 'index.html') {
-                link.classList.add('active');
-            }
-        }
-        // 时光机页面
-        else if (currentPage === 'timeline.html') {
-            if (link.getAttribute('href') === 'timeline.html') {
-                link.classList.add('active');
-            }
+        if (activeHref && link.getAttribute('href') === activeHref) {
+            link.classList.add('active');
         }
     });
 }
