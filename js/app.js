@@ -123,6 +123,9 @@ const App = {
                 item.classList.remove('active');
             }
         });
+        
+        // 触发数据源变化事件
+        window.dispatchEvent(new CustomEvent('sourceChanged'));
     },
     
     // 从localStorage加载数据源

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "lp-001",
+    "name": "William",
+    "avatar": "William.png",
+    "role": "有限合伙人",
+    "investment": 30000,
+    "currency": "CNY",
+    "joinDate": "2025-07-15"
+  }
+]

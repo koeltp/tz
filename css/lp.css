@@ -1,0 +1,240 @@
+/* 有限合伙人页面样式 */
+.lp-header {
+    text-align: center;
+    padding: 40px 0 30px;
+    margin-top: 20px;
+}
+
+.lp-subtitle {
+    font-size: 1.2rem;
+    color: var(--gray-color);
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* 过滤器样式 */
+.lp-filters {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.form-select {
+    padding: 8px 16px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    background-color: white;
+    font-size: 1rem;
+    color: var(--dark-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-select:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(1, 190, 243, 0.1);
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(1, 190, 243, 0.2);
+}
+
+/* LP列表样式 */
+.lp-section {
+    padding: 40px 0;
+}
+
+.lp-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+/* LP卡片样式 */
+.lp-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--light-color);
+}
+
+.lp-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+}
+
+/* 头像样式 */
+.lp-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background-color: var(--light-color);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.lp-card:hover .lp-avatar {
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.lp-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* LP信息 */
+.lp-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.lp-role {
+    font-size: 1rem;
+    color: var(--gray-color);
+    margin-bottom: 15px;
+}
+
+.lp-investment {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.lp-join-date {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+/* 加载状态 */
+.loading-spinner {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.loading-spinner i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    animation: spin 1s linear infinite;
+}
+
+.loading-spinner span {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+}
+
+/* 空状态 */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: var(--gray-color);
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    margin: 0;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+    max-width: 400px;
+    margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .lp-header {
+        padding: 30px 0 20px;
+    }
+    
+    .lp-filters {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .lp-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+    
+    .lp-card {
+        padding: 20px;
+    }
+    
+    .lp-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .lp-name {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .lp-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .lp-subtitle {
+        font-size: 1rem;
+    }
+    
+    .form-select {
+        width: 100%;
+        max-width: 200px;
+    }
+}
