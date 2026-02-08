@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>有限合伙人 (LP) - TP投资</title>
+    <title>关于我们 - TP投资</title>
     <link rel="icon" href="images/logo.png" type="image/x-icon" />
-    <meta name="keywords" content="有限合伙人, LP, TP投资, 投资者" />
+    <meta name="keywords" content="关于我们, TP投资, 团队介绍, 投资理念" />
     <meta
       name="description"
-      content="TP投资有限合伙人 (LP) 列表，展示我们的投资者信息和投资情况。"
+      content="了解TP投资的背景、投资理念和愿景，我们致力于提供专业的股票投资分析和管理服务。"
     />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK7GS5KGYF"></script>
@@ -20,7 +20,6 @@
       gtag('config', 'G-PK7GS5KGYF');
     </script>
     <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/partner.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -33,6 +32,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       />
     </noscript>
+    
     <script
       charset="UTF-8"
       id="LA_COLLECT"
@@ -76,13 +76,13 @@
             </a>
           </li>
           <li class="header-nav-item">
-            <a href="partner.html" class="header-nav-link active">
+            <a href="partner.html" class="header-nav-link">
               <i class="fas fa-users"></i>
               <span>合伙人</span>
             </a>
           </li>
           <li class="header-nav-item">
-            <a href="about.html" class="header-nav-link">
+            <a href="about.html" class="header-nav-link active">
               <i class="fas fa-info-circle"></i>
               <span>关于我们</span>
             </a>
@@ -102,18 +102,62 @@
     </header>
 
     <main class="container">
-      <section class="partner-header">
-        <h1><i class="fas fa-users"></i> Partner (合伙人) 列表</h1>
-        <p class="partner-subtitle">展示我们的投资者信息和投资情况</p>
-      </section>
+      <section class="about-content">
+        <div class="about-section">
+          <h2><i class="fas fa-lightbulb"></i> 我们的理念</h2>
+          <p>TP投资成立于2025年，专注于股票市场投资。我们的核心投资理念是：</p>
+          <ul>
+            <li><strong>长期价值投资</strong>：专注于发掘具有长期增长潜力的优质企业</li>
+            <li><strong>风险管理</strong>：建立多元化投资组合，严格控制风险</li>
+            <li><strong>数据驱动</strong>：基于数据分析和基本面研究做出投资决策</li>
+            <li><strong>透明度</strong>：每周末定期公开投资组合表现和市场分析</li>
+          </ul>
+        </div>
 
-      <section class="partner-section">
-        <div class="partner-list" id="partner-list">
-          <!-- Partner数据将通过JS动态加载 -->
-          <div class="loading-spinner">
-            <i class="fas fa-spinner fa-spin"></i>
-            <span>加载Partner数据中...</span>
+        <div class="about-section">
+          <h2><i class="fas fa-users"></i> 我们的团队</h2>
+          <div class="team-members">
+            <div class="team-member">
+              <div class="team-avatar">
+                <img src="images/partner/iiiiiii.png" alt="团队成员头像" />
+              </div>
+              <h3>iiiiiii</h3>
+              <p class="team-role">创始人 & CEO</p>
+              <p>拥有10年以上港美股和A股的股票投资经验，专注于价值投资和长期持有策略。</p>
+            </div>
+            <div class="team-member">
+              <div class="team-avatar">
+                <img src="images/partner/default.png" alt="团队成员头像" />
+              </div>
+              <h3>虚位以待</h3>
+              <p class="team-role">首席投资官</p>
+              <p>...</p>
+            </div>
+            <div class="team-member">
+              <div class="team-avatar">
+                <img src="images/partner/default.png" alt="团队成员头像" />
+              </div>
+              <h3>虚位以待</h3>
+              <p class="team-role">研究总监</p>
+              <p>...</p>
+            </div>
           </div>
+        </div>
+
+        <div class="about-section">
+          <h2><i class="fas fa-bullseye"></i> 我们的愿景</h2>
+          <p>我们致力于成为最受信任的投资管理伙伴，通过专业的投资分析和管理服务，帮助投资者实现长期财务目标。</p>
+          <p>我们相信，通过深入的研究、严格的风险管理和持续的创新，能够在复杂多变的市场环境中为投资者创造稳定的长期回报。</p>
+        </div>
+
+        <div class="about-section">
+          <h2><i class="fas fa-envelope"></i> 联系我们</h2>
+          <p>如果您对我们的服务感兴趣，或有任何问题，欢迎通过以下方式联系我们：</p>
+          <ul class="contact-info">
+            <li><i class="fas fa-envelope"></i> tp@taipi.top</li>
+            <li ><i class="fas fa-phone"></i> +852 6 372 4108</li>
+            <li><i class="fas fa-map-marker-alt"></i> 深圳市</li>
+          </ul>
         </div>
       </section>
     </main>
@@ -128,6 +172,5 @@
     <script src="js/source-switcher.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/nav.js"></script>
-    <script src="js/partner.js"></script>
   </body>
 </html>

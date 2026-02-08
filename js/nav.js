@@ -59,7 +59,8 @@ function highlightActiveNavLink() {
         '': 'index.html',
         'detail.html': 'index.html',
         'timeline.html': 'timeline.html',
-        'partner.html': 'partner.html'
+        'partner.html': 'partner.html',
+        'about.html': 'about.html'
     };
     
     const activeHref = pageToNavMap[currentPage];
