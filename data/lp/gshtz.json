@@ -1,9 +1,18 @@
 [
   {
     "id": "lp-001",
+    "name": "iiiiiii",
+    "avatar": "iiiiiii.png",
+    "role": "General Partner",
+    "investment": 0,
+    "currency": "CNY",
+    "joinDate": "2025-07-15"
+  },
+  {
+    "id": "lp-002",
     "name": "William",
     "avatar": "William.png",
-    "role": "有限合伙人",
+    "role": "Limited Partner",
     "investment": 30000,
     "currency": "CNY",
     "joinDate": "2025-07-15"

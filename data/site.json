@@ -29,5 +29,10 @@
       "startDate": "2026-02-01"
     }
   ],
-  "defaultSource": "tptz"
+  "defaultSource": "tptz",
+  "currencyLocales": {
+    "USD": "en-US",
+    "CNY": "zh-CN",
+    "HKD": "zh-HK"
+  }
 }

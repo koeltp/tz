@@ -1,20 +1,20 @@
 [
   {
     "id": "lp-001",
-    "name": "xAndy",
-    "avatar": "xAndy.png",
-    "role": "有限合伙人",
-    "investment": 242153.45,
+    "name": "iiiiiii",
+    "avatar": "iiiiiii.png",
+    "role": "General Partner",
+    "investment": 300000,
     "currency": "CNY",
     "joinDate": "2026-02-01"
   },
   {
-    "id": "lp-001",
-    "name": "iiiiiii",
-    "avatar": "iiiiiii.png",
+    "id": "lp-002",
+    "name": "xAndy",
+    "avatar": "xAndy.png",
     "role": "Limited Partner",
-    "investment": 300000,
+    "investment": 242153.45,
     "currency": "CNY",
     "joinDate": "2026-02-01"
-  }  
+  }
 ]

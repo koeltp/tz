@@ -41,7 +41,8 @@ const App = {
     // 格式化货币
     formatCurrency: function(value) {
         const currency = this.getCurrentCurrency();
-        const locale = currency === 'CNY' ? 'zh-CN' : 'en-US';
+        // 使用site.json中的currencyLocales映射
+        const locale = App.siteConfig?.currencyLocales?.[currency] || (currency === 'CNY' ? 'zh-CN' : 'en-US');
         return new Intl.NumberFormat(locale, {
             style: 'currency',
             currency: currency,

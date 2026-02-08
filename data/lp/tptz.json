@@ -1,18 +1,18 @@
 [
   {
     "id": "lp-001",
-    "name": "Charles",
-    "avatar": "Charles.png",
-    "role": "有限合伙人",
+    "name": "iiiiiii",
+    "avatar": "iiiiiii.png",
+    "role": "General Partner",
     "investment": 66000,
     "currency": "HKD",
     "joinDate": "2026-01-08"
   },
   {
     "id": "lp-002",
-    "name": "iiiiiii",
-    "avatar": "iiiiiii.png",
-    "role": "有限合伙人",
+    "name": "Charles",
+    "avatar": "Charles.png",
+    "role": "Limited Partner",
     "investment": 66000,
     "currency": "HKD",
     "joinDate": "2026-01-08"
@@ -21,7 +21,7 @@
     "id": "lp-003",
     "name": "Elena",
     "avatar": "Elena.png",
-    "role": "有限合伙人",
+    "role": "Limited Partner",
     "investment": 66000,
     "currency": "HKD",
     "joinDate": "2026-01-08"

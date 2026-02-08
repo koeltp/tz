@@ -91,18 +91,23 @@ function renderLPList(lpData) {
         return;
     }
     
-    // 按投资金额排序（从大到小）
-    const sortedLPData = [...lpData].sort((a, b) => b.investment - a.investment);
+    // 按ID的大小排序
+    const sortedLPData = [...lpData].sort((a, b) => {
+        // 提取ID中的数字部分进行比较
+        const idA = parseInt(a.id.split('-')[1]);
+        const idB = parseInt(b.id.split('-')[1]);
+        return idA - idB;
+    });
     
     sortedLPData.forEach(lp => {
         const lpCard = document.createElement('div');
         lpCard.className = 'lp-card';
         
-        const avatarPath = `images/lp/${lp.avatar || 'default.jpg'}`;
+        const avatarPath = `images/lp/${lp.avatar || 'default.png'}`;
         
-        // 使用LP数据中的currency字段
+        // 使用site.json中的currencyLocales映射
         const currency = lp.currency || 'CNY';
-        const locale = currency === 'USD' ? 'en-US' : (currency === 'HKD' ? 'zh-HK' : 'zh-CN');
+        const locale = App.siteConfig?.currencyLocales?.[currency] || (currency === 'USD' ? 'en-US' : 'zh-CN');
         
         const formattedInvestment = new Intl.NumberFormat(locale, {
             style: 'currency',
