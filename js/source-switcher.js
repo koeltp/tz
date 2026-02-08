@@ -10,11 +10,8 @@ const SourceSwitcher = {
         // 动态生成下拉菜单选项
         this.generateDropdownMenu();
         
-        // 绑定下拉菜单点击事件
-        this.bindDropdownEvents();
-        
-        // 绑定数据源切换事件
-        this.bindSourceSwitchEvents();
+        // 绑定事件
+        this.bindEvents();
     },
     
     generateDropdownMenu: function() {
@@ -32,37 +29,47 @@ const SourceSwitcher = {
         // 根据site.json中的sources数组生成选项
         App.siteConfig.sources.forEach(source => {
             const li = document.createElement('li');
+            const iconClass = source.icon || 'images/icon/default.png';
+            
             li.innerHTML = `
                 <a href="#" class="dropdown-item" data-source="${source.id}">
-                    <i class="fas ${this.getIconForSource(source.id)}"></i>
+                    <img src="${iconClass}" alt="${source.sitename} icon" class="source-icon">
                     <span>${source.sitename}</span>
                 </a>
             `;
+            
             dropdownMenu.appendChild(li);
+            
+            // 直接绑定点击事件
+            const link = li.querySelector('.dropdown-item');
+            if (link) {
+                link.addEventListener('click', this.handleSourceSwitch.bind(this));
+            }
         });
     },
     
-    getIconForSource: function(sourceId) {
-        const iconMap = {
-            'tptz': 'fa-chart-line',
-            'xszb': 'fa-chart-bar'
-        };
-        return iconMap[sourceId] || 'fa-chart-pie';
+    bindEvents: function() {
+        this.bindDropdownToggle();
+        this.bindClickOutside();
     },
     
-    bindDropdownEvents: function() {
+    bindDropdownToggle: function() {
         const dropdownToggle = document.querySelector('.dropdown-toggle');
         const dropdown = document.querySelector('.dropdown');
         
         if (dropdownToggle && dropdown) {
-            // 点击下拉切换按钮
             dropdownToggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 dropdown.classList.toggle('active');
             });
-            
-            // 点击外部关闭下拉菜单
+        }
+    },
+    
+    bindClickOutside: function() {
+        const dropdown = document.querySelector('.dropdown');
+        
+        if (dropdown) {
             document.addEventListener('click', function(e) {
                 if (!dropdown.contains(e.target)) {
                     dropdown.classList.remove('active');
@@ -71,19 +78,14 @@ const SourceSwitcher = {
         }
     },
     
-    bindSourceSwitchEvents: function() {
-        const dropdownItems = document.querySelectorAll('.dropdown-item');
+    handleSourceSwitch: function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         
-        dropdownItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                const source = this.getAttribute('data-source');
-                if (source) {
-                    App.switchSource(source);
-                }
-            });
-        });
+        const source = e.currentTarget.getAttribute('data-source');
+        if (source) {
+            App.switchSource(source);
+        }
     }
 };
 

@@ -5,28 +5,32 @@
       "sitename": "TP投资",
       "currency": "USD",
       "initialInvestment": 25377.78,
-      "startDate": "2025-12-29"
+      "startDate": "2025-12-29",
+      "icon": "images/icon/tptz.png"
     },
     {
       "id": "gshtz",
       "sitename": "格式化投资",
       "currency": "CNY",
       "initialInvestment": 30000,
-      "startDate": "2026-02-01"
+      "startDate": "2026-02-01",
+      "icon": "images/icon/gshtz.png"
     },
     {
       "id": "xszbcn",
       "sitename": "新市资本_CN",
       "currency": "CNY",
       "initialInvestment": 542153.45,
-      "startDate": "2026-02-01"
+      "startDate": "2026-02-01",
+      "icon": "images/icon/xszbcn.png"
     },
     {
       "id": "xszbus",
       "sitename": "新市资本_US",
       "currency": "USD",
       "initialInvestment": 89501.96,
-      "startDate": "2026-02-01"
+      "startDate": "2026-02-01",
+      "icon": "images/icon/xszbus.png"
     }
   ],
   "defaultSource": "tptz",

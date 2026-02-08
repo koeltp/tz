@@ -36,6 +36,15 @@ body {
     width: 100%;
 }
 
+/* 数据源图标样式 */
+.source-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    border-radius: 4px;
+}
+
 /* 固定头部样式 */
 .fixed-header {
     position: fixed;
