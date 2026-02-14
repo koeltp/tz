@@ -1,38 +1,47 @@
 {
-  "totalAssets": 55330.36,
-  "totalMarketValue": 23254.3,
-  "updateDate": "2026-02-01 14:37:55",
+  "totalAssets": 46635.27,
+  "totalMarketValue": 21945.75,
+  "updateDate": "2026-02-14 15:22:55",
   "holdings": [
     {
       "name": "RXRX",
-      "weight": 3.6
+      "weight": 3.76
     },
     {
       "name": "RXRX CALL 260618 7",
-      "weight": 12.05
+      "weight": 9.22
     },
     {
       "name": "RXRX CALL 260618 5",
-      "weight": 1.9
+      "weight": 1.93
     },
     {
       "name": "NFLX",
-      "weight": 4.45
+      "weight": 4.95
     },
     {
       "name": "NFLX CALL 260417 100",
-      "weight": 10.06
+      "weight": 5.85
     },
     {
       "name": "HOOD CALL 260618 170",
-      "weight": 9.98
+      "weight": 6.75
+    },
+    {
+      "name": "腾讯控股",
+      "weight": 14.59
     }
   ],
   "weeklyTransactions": [
     {
-      "date": "2026-01-29",
+      "date": "2026-02-12",
       "type": "买入",
-      "stockName": "NFLX CALL 260417 100"
+      "stockName": "腾讯控股"
+    },
+    {
+      "date": "2026-02-11",
+      "type": "买入",
+      "stockName": "HOOD CALL 260618 170"
     }
   ]
 }
