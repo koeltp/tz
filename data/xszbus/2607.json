@@ -1,7 +1,7 @@
 {
-  "totalAssets": 55330.36,
-  "totalMarketValue": 23254.3,
-  "updateDate": "2026-02-01 14:37:55",
+  "totalAssets": 45117.88,
+  "totalMarketValue": 20408.78,
+  "updateDate": "2026-02-22 16:40:55",
   "holdings": [
     {
       "name": "RXRX",
@@ -29,10 +29,5 @@
     }
   ],
   "weeklyTransactions": [
-    {
-      "date": "2026-01-29",
-      "type": "买入",
-      "stockName": "NFLX CALL 260417 100"
-    }
   ]
 }
