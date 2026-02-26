@@ -36,12 +36,14 @@
     {
       "date": "2026-02-12",
       "type": "买入",
-      "stockName": "腾讯控股"
+      "stockName": "腾讯控股",
+      "price": 533
     },
     {
       "date": "2026-02-11",
       "type": "买入",
-      "stockName": "HOOD CALL 260618 170"
+      "stockName": "HOOD CALL 260618 170",
+      "price": 0.57
     }
   ]
 }

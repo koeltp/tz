@@ -1,7 +1,7 @@
 {
-  "totalAssets": 55330.36,
-  "totalMarketValue": 23254.3,
-  "updateDate": "2026-02-01 14:37:55",
+  "totalAssets": 48917.05,
+  "totalMarketValue": 17391.7,
+  "updateDate": "2026-02-26 10:46:55",
   "holdings": [
     {
       "name": "RXRX",
@@ -26,13 +26,30 @@
     {
       "name": "HOOD CALL 260618 170",
       "weight": 9.98
+    },
+    {
+      "name": "RKLB CALL 260417 100",
+      "weight": 0.49
     }
   ],
   "weeklyTransactions": [
     {
-      "date": "2026-01-29",
+      "date": "2026-02-23",
+      "type": "卖出",
+      "stockName": "RXRX CALL 260618 7",
+      "price": 0.15
+    },
+    {
+      "date": "2026-02-23",
       "type": "买入",
-      "stockName": "NFLX CALL 260417 100"
+      "stockName": "RKLB CALL 260417 100",
+      "price": 2.58
+    },
+    {
+      "date": "2026-02-23",
+      "type": "卖出",
+      "stockName": "腾讯控股",
+      "price": 541.5
     }
   ]
 }

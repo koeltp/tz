@@ -1,26 +1,22 @@
 {
-  "totalAssets": 491261.31,
-  "totalMarketValue": 490182,
-  "updateDate": "2026-2-08 14:16:15",
+  "totalAssets": 472675.68,
+  "totalMarketValue": 470505,
+  "updateDate": "2026-2-26 10:44:15",
   "holdings": [
     {
-      "name": "海陆重工",
-      "weight": 0.2
-    },
-    {
       "name": "老板电器",
-      "weight": 12.4
+      "weight": 12.5
     },
     {
       "name": "口子窖",
-      "weight": 87.2
+      "weight": 87
     }
   ],
   "weeklyTransactions": [
     {
-      "date": "2026-02-05",
+      "date": "2026-02-24",
       "type": "卖出",
-      "stockName": "酒ETF"
+      "stockName": "海陆重工"
     }
   ]
 }

@@ -1,11 +1,11 @@
 {
-  "totalAssets": 34840.92,
-  "totalMarketValue": 34720,
-  "updateDate": "2026-2-08 14:28:15",
+  "totalAssets": 33838.92,
+  "totalMarketValue": 33728,
+  "updateDate": "2026-2-26 10:43:28",
   "holdings": [
     {
       "name": "老板电器",
-      "weight": 99.65
+      "weight": 99.64
     }
   ],
   "weeklyTransactions": []

@@ -137,8 +137,14 @@
     min-width: 70px;
 }
 
-.transactions-table th:nth-child(3), /* 股票列 */
+.transactions-table th:nth-child(3), /* 价格列 */
 .transactions-table td:nth-child(3) {
+    width: 80px; /* 与类型列相同宽度 */
+    min-width: 70px;
+}
+
+.transactions-table th:nth-child(4), /* 股票列 */
+.transactions-table td:nth-child(4) {
     width: auto; /* 剩余宽度 */
     min-width: 100px;
 }
@@ -280,9 +286,14 @@
         width: 100px;
     }
     
-    .transactions-table th:nth-child(2),
+    .transactions-table th:nth-child(2), /* 类型列 */
     .transactions-table td:nth-child(2) {
         width: 60px;
+    }
+    
+    .transactions-table th:nth-child(3), /* 价格列 */
+    .transactions-table td:nth-child(3) {
+        width: 60px; /* 与类型列相同宽度 */
     }
     
     .badge {

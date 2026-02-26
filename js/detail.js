@@ -172,7 +172,7 @@ function updateTransactionsList(transactions) {
         transactionsCount.textContent = '0 笔交易';
         transactionsList.innerHTML = `
             <tr>
-                <td colspan="3" style="text-align: center; padding: 40px;">
+                <td colspan="4" style="text-align: center; padding: 40px;">
                     本周暂无交易记录
                 </td>
             </tr>
@@ -189,6 +189,7 @@ function updateTransactionsList(transactions) {
     });
     
     sortedTransactions.forEach(transaction => {
+        const price = transaction.price || 0;
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${App.formatDate(transaction.date)}</td>
@@ -197,6 +198,7 @@ function updateTransactionsList(transactions) {
                     ${transaction.type}
                 </span>
             </td>
+            <td>${price}</td>
             <td>${transaction.stockName}</td>
         `;
         

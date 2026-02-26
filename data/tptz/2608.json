@@ -1,26 +1,25 @@
 {
-  "totalAssets": 13664.69,
-  "totalMarketValue": 10473.99,
-  "updateDate": "2026-2-07 10:26:15",
+  "totalAssets": 11786.99,
+  "totalMarketValue": 8590.29,
+  "updateDate": "2026-2-26 10:40:26",
   "holdings": [
     {
       "name": "HOOD CALL 260618 170",
-      "weight": 17.82
+      "weight": 7.11
     },
     {
       "name": "NFLX CALL 260417 100",
-      "weight": 17.32
+      "weight": 19.62
     },
     {
       "name": "NFLX",
-      "weight": 36.07
+      "weight": 42.34
     },
     {
       "name": "RXRX CALL 260618 7",
-      "weight": 5.47
+      "weight": 3.81
     }
   ],
   "weeklyTransactions": [
-    
   ]
 }
