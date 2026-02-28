@@ -1,7 +1,7 @@
 {
-  "totalAssets": 491261.31,
-  "totalMarketValue": 490182,
-  "updateDate": "2026-2-08 14:16:15",
+  "totalAssets": 479842.31,
+  "totalMarketValue": 47876,
+  "updateDate": "2026-2-14 15:19:15",
   "holdings": [
     {
       "name": "海陆重工",
@@ -17,10 +17,5 @@
     }
   ],
   "weeklyTransactions": [
-    {
-      "date": "2026-02-05",
-      "type": "卖出",
-      "stockName": "酒ETF"
-    }
   ]
 }

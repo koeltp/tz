@@ -1,0 +1,20 @@
+[
+  {
+    "id": "lp-001",
+    "name": "iiiiiii",
+    "avatar": "iiiiiii.png",
+    "role": "General Partner",
+    "investment": 0,
+    "currency": "CNY",
+    "joinDate": "2026-02-28"
+  },
+  {
+    "id": "lp-002",
+    "name": "踏浪逐梦",
+    "avatar": "talang.jpg",
+    "role": "Limited Partner",
+    "investment": 8000,
+    "currency": "CNY",
+    "joinDate": "2026-02-28"
+  }
+]

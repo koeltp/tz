@@ -31,6 +31,14 @@
       "initialInvestment": 89501.96,
       "startDate": "2026-02-01",
       "icon": "images/icon/xszbus.png"
+    },
+    {
+      "id": "pipixia",
+      "sitename": "皮皮虾",
+      "currency": "CNY",
+      "initialInvestment": 8000,
+      "startDate": "2026-02-28",
+      "icon": "images/icon/pipixia.png"
     }
   ],
   "defaultSource": "tptz",

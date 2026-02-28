@@ -1,6 +1,6 @@
 {
-  "totalAssets": 472675.68,
-  "totalMarketValue": 470505,
+  "totalAssets": 472283,
+  "totalMarketValue": 472283,
   "updateDate": "2026-2-26 10:44:15",
   "holdings": [
     {
@@ -16,7 +16,8 @@
     {
       "date": "2026-02-24",
       "type": "卖出",
-      "stockName": "海陆重工"
+      "stockName": "海陆重工",
+      "price":12.44
     }
   ]
 }
