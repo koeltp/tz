@@ -13,11 +13,6 @@
     }
   ],
   "weeklyTransactions": [
-    {
-      "date": "2026-02-24",
-      "type": "卖出",
-      "stockName": "海陆重工",
-      "price":12.44
-    }
+    
   ]
 }
