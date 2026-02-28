@@ -1,25 +1,55 @@
 {
-  "totalAssets": 11786.99,
-  "totalMarketValue": 8590.29,
-  "updateDate": "2026-2-26 10:40:26",
+  "totalAssets": 17929.21,
+  "totalMarketValue": 14732.08,
+  "updateDate": "2026-2-28 09:24:28",
   "holdings": [
     {
       "name": "HOOD CALL 260618 170",
-      "weight": 7.11
+      "weight": 7.98
     },
     {
-      "name": "NFLX CALL 260417 100",
-      "weight": 19.62
+      "name": "RKLB CALL 260717 80",
+      "weight": 6.22
     },
     {
-      "name": "NFLX",
-      "weight": 42.34
+      "name": "RKLB CALL 260417 100",
+      "weight": 4.71
     },
     {
       "name": "RXRX CALL 260618 7",
-      "weight": 3.81
+      "weight": 2.18
     }
   ],
   "weeklyTransactions": [
+      {
+        "date": "2026-02-27",
+        "type": "卖出",
+        "stockName": "NFLX",
+        "price": 92.3
+      },
+      {
+        "date": "2026-02-27",
+        "type": "卖出",
+        "stockName": "NFLX CALL 260417 100",
+        "price": 3
+      },
+      {
+        "date": "2026-02-27",
+        "type": "买入",
+        "stockName": "HOOD CALL 260618 170",
+        "price": 0.29
+      },
+      {
+        "date": "2026-02-27",
+        "type": "买入",
+        "stockName": "RKLB CALL 260417 100",
+        "price": 1.02
+      },
+      {
+        "date": "2026-02-27",
+        "type": "买入",
+        "stockName": "RKLB CALL 260717 80",
+        "price": 9.35
+      }
   ]
 }
