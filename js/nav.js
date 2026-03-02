@@ -60,7 +60,8 @@ function highlightActiveNavLink() {
         'detail.html': 'index.html',
         'timeline.html': 'timeline.html',
         'partner.html': 'partner.html',
-        'about.html': 'about.html'
+        'about.html': 'about.html',
+        'dashboard.html': 'dashboard.html'
     };
     
     const activeHref = pageToNavMap[currentPage];
