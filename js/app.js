@@ -131,6 +131,13 @@ const App = {
             currentSourceElement.textContent = sourceName;
         }
         
+        // 更新logo文本
+        const logoTextElement = document.querySelector('.logo-text');
+        if (logoTextElement) {
+            const sourceName = this.getCurrentSourceName();
+            logoTextElement.textContent = sourceName;
+        }
+        
         // 更新下拉菜单的激活状态
         const dropdownItems = document.querySelectorAll('.dropdown-item');
         dropdownItems.forEach(item => {
