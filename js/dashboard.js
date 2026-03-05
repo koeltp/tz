@@ -29,9 +29,12 @@ async function processDashboardData(reports) {
     // 按日期排序（从旧到新）
     const sortedReports = [...reports].sort((a, b) => a.id.localeCompare(b.id));
     
-    // 获取启动资金
+    // 获取启动资金和资金流水数据
     const summary = await App.loadSummary();
     const initialInvestment = summary ? summary.initialInvestment : 0;
+    
+    // 从新的资金流水文件加载数据
+    const cashFlows = await App.loadCashFlows(App.currentSource);
     
     // 提取数据
     const labels = sortedReports.map(report => {
@@ -41,22 +44,39 @@ async function processDashboardData(reports) {
     
     const assetsData = sortedReports.map(report => report.totalAssets);
     
-    // 计算每周收益率（相对于启动资金）
-    const returnData = sortedReports.map(report => {
-        return ((report.totalAssets - initialInvestment) / initialInvestment) * 100;
+    // 为每个周报计算到该时间点为止的调整后初始投资
+    const adjustedInitialInvestmentData = sortedReports.map(report => {
+        // 获取周报的结束日期
+        const reportEndDate = new Date(report.dateRange.split(' 至 ')[1]);
+        
+        // 计算到该周报结束日期为止的累计资金流入
+        let cumulativeCashInflow = 0;
+        cashFlows.forEach(flow => {
+            const flowDate = new Date(flow.date);
+            if (flowDate <= reportEndDate) {
+                if (flow.type === '转入') {
+                    cumulativeCashInflow += flow.amount;
+                } else if (flow.type === '转出') {
+                    cumulativeCashInflow -= flow.amount;
+                }
+            }
+        });
+        
+        // 计算调整后的初始投资
+        return initialInvestment + cumulativeCashInflow;
     });
     
-    // 创建启动资金数据数组（与周报数量相同）
-    const initialInvestmentData = new Array(sortedReports.length).fill(initialInvestment);
+    // 计算每周收益率（相对于调整后的初始投资）
+    const returnData = sortedReports.map((report, index) => {
+        const adjustedInvestment = adjustedInitialInvestmentData[index];
+        return adjustedInvestment > 0 ? ((report.totalAssets - adjustedInvestment) / adjustedInvestment) * 100 : 0;
+    });
     
-    // 绘制资产趋势图
-    drawAssetsChart(labels, assetsData, initialInvestmentData);
-    
-    // 绘制收益率趋势图
-    drawReturnChart(labels, returnData);
+    // 绘制资产与收益率趋势图（合并版）
+    drawCombinedTrendChart(labels, assetsData, adjustedInitialInvestmentData, returnData);
     
     // 计算绩效指标
-    calculatePerformanceMetrics(sortedReports, initialInvestment);
+    await calculatePerformanceMetrics(sortedReports, initialInvestment);
 }
 
 // 加载所有站点的综合数据
@@ -257,9 +277,28 @@ function getWeekNumber(date) {
     return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
 }
 
-// 绘制资产趋势图
-function drawAssetsChart(labels, assetsData, initialInvestmentData) {
-    const ctx = document.getElementById('assetsChart').getContext('2d');
+// 绘制资产与收益率趋势图（合并版）
+function drawCombinedTrendChart(labels, assetsData, initialInvestmentData, returnData) {
+    const ctx = document.getElementById('combinedTrendChart').getContext('2d');
+    
+    // 获取当前站点的币种
+    const getCurrencySymbol = function() {
+        if (!App.siteConfig || !App.currentSource) return '$';
+        
+        const source = App.siteConfig.sources.find(s => s.id === App.currentSource);
+        if (!source || !source.currency) return '$';
+        
+        switch (source.currency) {
+            case 'CNY':
+                return '¥';
+            case 'USD':
+                return '$';
+            default:
+                return '$';
+        }
+    };
+    
+    const currencySymbol = getCurrencySymbol();
     
     new Chart(ctx, {
         type: 'line',
@@ -278,7 +317,8 @@ function drawAssetsChart(labels, assetsData, initialInvestmentData) {
                     pointBorderColor: '#fff',
                     pointBorderWidth: 2,
                     pointRadius: 4,
-                    pointHoverRadius: 6
+                    pointHoverRadius: 6,
+                    yAxisID: 'y'
                 },
                 {
                     label: '启动资金',
@@ -293,7 +333,23 @@ function drawAssetsChart(labels, assetsData, initialInvestmentData) {
                     pointBorderColor: '#fff',
                     pointBorderWidth: 2,
                     pointRadius: 3,
-                    pointHoverRadius: 5
+                    pointHoverRadius: 5,
+                    yAxisID: 'y'
+                },
+                {
+                    label: '收益率',
+                    data: returnData,
+                    borderColor: '#27ae60',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    tension: 0.3,
+                    fill: false,
+                    pointBackgroundColor: '#27ae60',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    yAxisID: 'y1'
                 }
             ]
         },
@@ -309,14 +365,20 @@ function drawAssetsChart(labels, assetsData, initialInvestmentData) {
                     intersect: false,
                     callbacks: {
                         label: function(context) {
-                            // 综合数据已统一转换为USD
-                            return `${context.dataset.label}: $${context.parsed.y.toFixed(2)}`;
+                            if (context.dataset.yAxisID === 'y') {
+                                return `${context.dataset.label}: ${currencySymbol}${context.parsed.y.toFixed(2)}`;
+                            } else {
+                                return `${context.dataset.label}: ${context.parsed.y >= 0 ? '+' : ''}${context.parsed.y.toFixed(2)}%`;
+                            }
                         }
                     }
                 }
             },
             scales: {
                 y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
                     beginAtZero: false,
                     title: {
                         display: true,
@@ -324,74 +386,14 @@ function drawAssetsChart(labels, assetsData, initialInvestmentData) {
                     },
                     ticks: {
                         callback: function(value) {
-                            // 综合数据已统一转换为USD
-                            return `$${value.toFixed(0)}`;
+                            return `${currencySymbol}${value.toFixed(0)}`;
                         }
                     }
                 },
-                x: {
-                    title: {
-                        display: true,
-                        text: '时间'
-                    }
-                }
-            }
-        }
-    });
-}
-
-// 绘制收益率趋势图
-function drawReturnChart(labels, returnData) {
-    const ctx = document.getElementById('returnChart').getContext('2d');
-    
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: '收益率',
-                data: returnData,
-                borderColor: '#27ae60',
-                backgroundColor: function(context) {
-                    const chart = context.chart;
-                    const {ctx, chartArea} = chart;
-                    if (!chartArea) return null;
-                    
-                    // 创建渐变背景
-                    const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
-                    gradient.addColorStop(0, 'rgba(39, 174, 96, 0.3)');
-                    gradient.addColorStop(1, 'rgba(39, 174, 96, 0.05)');
-                    return gradient;
-                },
-                borderWidth: 2,
-                tension: 0.3,
-                fill: true,
-                pointBackgroundColor: '#27ae60',
-                pointBorderColor: '#fff',
-                pointBorderWidth: 2,
-                pointRadius: 4,
-                pointHoverRadius: 6
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                tooltip: {
-                    mode: 'index',
-                    intersect: false,
-                    callbacks: {
-                        label: function(context) {
-                            return `收益率: ${context.parsed.y >= 0 ? '+' : ''}${context.parsed.y.toFixed(2)}%`;
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: {
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
                     beginAtZero: true,
                     title: {
                         display: true,
@@ -401,6 +403,9 @@ function drawReturnChart(labels, returnData) {
                         callback: function(value) {
                             return value + '%';
                         }
+                    },
+                    grid: {
+                        drawOnChartArea: false
                     }
                 },
                 x: {
@@ -534,7 +539,7 @@ function drawCombinedAssetsChart(labels, datasets) {
 }
 
 // 计算绩效指标
-function calculatePerformanceMetrics(reports, initialInvestment) {
+async function calculatePerformanceMetrics(reports, initialInvestment) {
     if (reports.length === 0) return;
     
     // 按日期排序（从旧到新）
@@ -544,9 +549,16 @@ function calculatePerformanceMetrics(reports, initialInvestment) {
     const currentAssets = sortedReports[sortedReports.length - 1].totalAssets;
     document.getElementById('current-assets').textContent = App.formatCurrency(currentAssets);
     
-    // 累计收益和收益率（基于启动资金）
-    const totalChange = currentAssets - initialInvestment;
-    const returnRate = (totalChange / initialInvestment) * 100;
+    // 从新的资金流水文件加载数据
+    const cashFlows = await App.loadCashFlows(App.currentSource);
+    const totalCashInflow = App.getTotalCashInflow(cashFlows);
+    
+    // 计算调整后的初始投资（启动资金 + 累计资金流入）
+    const adjustedInitialInvestment = initialInvestment + totalCashInflow;
+    
+    // 累计收益和收益率（基于调整后的初始投资）
+    const totalChange = currentAssets - adjustedInitialInvestment;
+    const returnRate = adjustedInitialInvestment > 0 ? (totalChange / adjustedInitialInvestment) * 100 : 0;
     
     const totalChangeElement = document.getElementById('total-change');
     totalChangeElement.textContent = `${totalChange >= 0 ? '+' : ''}${App.formatCurrency(totalChange)}`;
@@ -555,6 +567,13 @@ function calculatePerformanceMetrics(reports, initialInvestment) {
     const returnRateElement = document.getElementById('return-rate');
     returnRateElement.textContent = `${returnRate >= 0 ? '+' : ''}${returnRate.toFixed(2)}%`;
     returnRateElement.className = `stat-value ${returnRate >= 0 ? 'positive' : 'negative'}`;
+    
+    // 显示累计资金流入
+    const cashInflowElement = document.getElementById('cash-inflow');
+    if (cashInflowElement) {
+        cashInflowElement.textContent = `${totalCashInflow >= 0 ? '+' : ''}${App.formatCurrency(totalCashInflow)}`;
+        cashInflowElement.className = `stat-value ${totalCashInflow >= 0 ? 'positive' : 'negative'}`;
+    }
 }
 
 // 显示错误信息

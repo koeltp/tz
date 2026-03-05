@@ -156,6 +156,37 @@
           </div>
         </div>
       </section>
+      <!-- 资金流水模块 -->
+      <section class="cash-flows-section">
+        <h2><i class="fas fa-exchange-alt"></i> 资金流水</h2>
+        <div class="cash-flows-container">
+          <div class="cash-flows-header">
+            <h3>资金流水记录</h3>
+            <span class="cash-flows-count" id="cash-flows-count">0 笔流水</span>
+          </div>
+          <div class="cash-flows-list">
+            <table id="cash-flows-table">
+              <thead>
+                <tr>
+                  <th>日期</th>
+                  <th>类型</th>
+                  <th>金额</th>
+                  <th>描述</th>
+                </tr>
+              </thead>
+              <tbody id="cash-flows-list">
+                <!-- 资金流水数据将通过JS动态加载 -->
+                <tr>
+                  <td colspan="4" style="text-align: center; padding: 40px;">
+                    加载资金流水数据中...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       <!-- 新增的投资语录模块 -->
       <section class="quotes-section">
         <div class="section-header">

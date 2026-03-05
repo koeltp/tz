@@ -119,22 +119,11 @@
       <section class="dashboard-content">
         <div class="dashboard-card">
           <div class="card-header">
-            <h2><i class="fas fa-chart-area"></i> 总资产趋势</h2>
+            <h2><i class="fas fa-chart-line"></i> 资产与收益率趋势</h2>
           </div>
           <div class="card-body">
             <div class="chart-container">
-              <canvas id="assetsChart"></canvas>
-            </div>
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="card-header">
-            <h2><i class="fas fa-percentage"></i> 收益率趋势</h2>
-          </div>
-          <div class="card-body">
-            <div class="chart-container">
-              <canvas id="returnChart"></canvas>
+              <canvas id="combinedTrendChart"></canvas>
             </div>
           </div>
         </div>
@@ -167,6 +156,10 @@
               <div class="stat-item">
                 <span class="stat-label">收益率</span>
                 <span class="stat-value" id="return-rate"></span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">资金流入</span>
+                <span class="stat-value" id="cash-inflow"></span>
               </div>
             </div>
           </div>

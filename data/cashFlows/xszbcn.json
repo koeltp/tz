@@ -1,0 +1,10 @@
+{
+    "cashFlows": [
+        {
+            "date": "2026-03-05",
+            "type": "转出",
+            "amount": 39608.73,
+            "description": "减少投资"
+        }
+    ]
+}

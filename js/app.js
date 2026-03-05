@@ -182,6 +182,33 @@ const App = {
         return true;
     },
     
+    // 加载资金流水数据
+    loadCashFlows: async function(sourceId) {
+        try {
+            const response = await fetch(`data/cashFlows/${sourceId}.json`);
+            if (response.ok) {
+                const data = await response.json();
+                return data.cashFlows || [];
+            }
+            return [];
+        } catch (error) {
+            console.error('加载资金流水失败:', error);
+            return [];
+        }
+    },
+    
+    // 获取累计资金流入（转入-转出）
+    getTotalCashInflow: function(cashFlows) {
+        return cashFlows.reduce((total, flow) => {
+            if (flow.type === '转入') {
+                return total + flow.amount;
+            } else if (flow.type === '转出') {
+                return total - flow.amount;
+            }
+            return total;
+        }, 0);
+    },
+    
     // 加载投资总览数据
     loadSummary: async function() {
         try {
@@ -194,12 +221,24 @@ const App = {
                 throw new Error(`Source ${this.currentSource} not found`);
             }
             
+            // 加载资金流水数据
+            const cashFlows = await this.loadCashFlows(this.currentSource);
+            const totalCashInflow = this.getTotalCashInflow(cashFlows);
+            
             return {
                 initialInvestment: source.initialInvestment,
+                totalCashInflow: totalCashInflow,
+                adjustedInvestment: source.initialInvestment + totalCashInflow,
                 startDate: source.startDate
             };
         } catch (error) {
             console.error('加载投资总览失败:', error);
+            return {
+                initialInvestment: 0,
+                totalCashInflow: 0,
+                adjustedInvestment: 0,
+                startDate: null
+            };
         }
     },
     
@@ -436,16 +475,51 @@ const App = {
     },
     
     // 计算周度收益
-    calculateWeeklyChange: function(currentReport, previousReport) {
+    calculateWeeklyChange: async function(currentReport, previousReport) {
         if (!previousReport) {
             return { amount: 0, percent: 0 };
         }
         
-        const amount = currentReport.totalAssets - previousReport.totalAssets;
-        const percent = (amount / previousReport.totalAssets) * 100;
+        // 计算原始资产变化
+        const rawAmount = currentReport.totalAssets - previousReport.totalAssets;
+        
+        // 获取两个报告的日期范围
+        const currentDateRange = currentReport.dateRange;
+        const previousDateRange = previousReport.dateRange;
+        
+        // 解析日期范围，获取结束日期
+        const currentEndDate = new Date(currentDateRange.split(' 至 ')[1]);
+        const previousEndDate = new Date(previousDateRange.split(' 至 ')[1]);
+        
+        // 加载资金流水数据
+        let netCashFlow = 0;
+        try {
+            const cashFlows = await this.loadCashFlows(this.currentSource);
+            
+            // 计算两个报告期间的净资金流入
+            cashFlows.forEach(flow => {
+                const flowDate = new Date(flow.date);
+                // 只考虑在上周结束日期之后、本周结束日期之前的资金流水
+                if (flowDate > previousEndDate && flowDate <= currentEndDate) {
+                    if (flow.type === '转入') {
+                        netCashFlow += flow.amount;
+                    } else if (flow.type === '转出') {
+                        netCashFlow -= flow.amount;
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('计算资金流水时出错:', error);
+            // 出错时使用0作为净资金流入
+            netCashFlow = 0;
+        }
+        
+        // 计算纯投资收益（排除资金转入转出）
+        const investmentGain = rawAmount - netCashFlow;
+        const percent = previousReport.totalAssets > 0 ? (investmentGain / previousReport.totalAssets) * 100 : 0;
         
         return {
-            amount: amount,
+            amount: investmentGain,
             percent: percent
         };
     },

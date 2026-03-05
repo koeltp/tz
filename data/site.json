@@ -20,7 +20,7 @@
       "id": "xszbcn",
       "sitename": "新市资本_CN",
       "currency": "CNY",
-      "initialInvestment": 502544.72,
+      "initialInvestment": 544061.62,
       "startDate": "2026-02-01",
       "icon": "images/icon/xszbcn.png"
     },
@@ -28,7 +28,7 @@
       "id": "xszbus",
       "sitename": "新市资本_US",
       "currency": "USD",
-      "initialInvestment": 89501.96,
+      "initialInvestment": 38189.09,
       "startDate": "2026-02-01",
       "icon": "images/icon/xszbus.png"
     },

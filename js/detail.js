@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         
         // 计算周度收益和可用资金
-        const currentReportWithCalculations = calculateWeeklyData(currentReport, allReports);
+        const currentReportWithCalculations = await calculateWeeklyData(currentReport, allReports);
         
         // 显示周报详情
         displayWeeklyReport(currentReportWithCalculations);
@@ -49,16 +49,16 @@ document.addEventListener('DOMContentLoaded', async function() {
 });
 
 // 计算周度数据
-function calculateWeeklyData(currentReport, allReports) {
+async function calculateWeeklyData(currentReport, allReports) {
     const result = { ...currentReport };
     
     // 查找当前报告的索引
     const currentIndex = allReports.findIndex(r => r.id === currentReport.id);
     
-    // 计算周度收益
+    // 计算周度收益（只考虑投资收益，不包括资金转入转出）
     if (currentIndex < allReports.length - 1) {
         const previousReport = allReports[currentIndex + 1];
-        const weeklyChange = App.calculateWeeklyChange(currentReport, previousReport);
+        const weeklyChange = await App.calculateWeeklyChange(currentReport, previousReport);
         result.weeklyChangeAmount = weeklyChange.amount;
         result.weeklyChangePercent = weeklyChange.percent;
     } else {
@@ -243,6 +243,74 @@ function setupNavigation(allReports, currentReportId) {
         nextWeekBtn.onclick = function(e) {
             e.preventDefault();
         };
+    }
+}
+
+// 更新资金流水列表
+async function updateCashFlowsList() {
+    const cashFlowsList = document.getElementById('cash-flows-list');
+    const cashFlowsCount = document.getElementById('cash-flows-count');
+    
+    // 检查元素是否存在
+    if (!cashFlowsList || !cashFlowsCount) {
+        console.warn('资金流水相关元素不存在');
+        return;
+    }
+    
+    try {
+        // 从新的资金流水文件加载数据
+        const cashFlows = await App.loadCashFlows(App.currentSource);
+        
+        if (!cashFlows || cashFlows.length === 0) {
+            cashFlowsCount.textContent = '0 笔流水';
+            cashFlowsList.innerHTML = `
+                <tr>
+                    <td colspan="4" style="text-align: center; padding: 40px;">
+                        暂无资金流水记录
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+        
+        cashFlowsCount.textContent = `${cashFlows.length} 笔流水`;
+        cashFlowsList.innerHTML = '';
+        
+        // 按日期排序（从新到旧）
+        const sortedCashFlows = [...cashFlows].sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+        });
+        
+        sortedCashFlows.forEach(flow => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${App.formatDate(flow.date)}</td>
+                <td>
+                    <span class="badge ${flow.type === '转入' ? 'cash-in' : 'cash-out'}">
+                        ${flow.type}
+                    </span>
+                </td>
+                <td>${App.formatCurrency(flow.amount)}</td>
+                <td>${flow.description || '-'}</td>
+            `;
+            
+            cashFlowsList.appendChild(row);
+        });
+    } catch (error) {
+        console.error('加载资金流水失败:', error);
+        // 确保元素存在后再设置内容
+        if (cashFlowsCount) {
+            cashFlowsCount.textContent = '0 笔流水';
+        }
+        if (cashFlowsList) {
+            cashFlowsList.innerHTML = `
+                <tr>
+                    <td colspan="4" style="text-align: center; padding: 40px;">
+                        加载资金流水失败
+                    </td>
+                </tr>
+            `;
+        }
     }
 }
 
