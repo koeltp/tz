@@ -1,7 +1,7 @@
 {
-  "totalAssets": 403322.9,
-  "totalMarketValue": 403253,
-  "updateDate": "2026-03-05 17:44:15",
+  "totalAssets": 409425.84,
+  "totalMarketValue": 415411,
+  "updateDate": "2026-03-06 21:24:15",
   "holdings": [
     {
       "name": "老板电器",
@@ -9,11 +9,11 @@
     },
     {
       "name": "口子窖",
-      "weight": 96
+      "weight": 94.6
     },
     {
       "name": "华帝股份",
-      "weight": 1.5
+      "weight": 3
     }
   ],
   "weeklyTransactions": [
@@ -34,6 +34,12 @@
       "type": "买入",
       "stockName": "老板电器",
       "price": 19.85
+    },
+    {
+      "date": "2026-03-06",
+      "type": "买入",
+      "stockName": "华帝股份(融资)",
+      "price": 6.05
     }
   ]
 }

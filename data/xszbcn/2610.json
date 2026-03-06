@@ -1,0 +1,21 @@
+{
+  "totalAssets": 409425.84,
+  "totalMarketValue": 415411,
+  "updateDate": "2026-03-06 21:24:15",
+  "holdings": [
+    {
+      "name": "老板电器",
+      "weight": 2.5
+    },
+    {
+      "name": "口子窖",
+      "weight": 94.6
+    },
+    {
+      "name": "华帝股份",
+      "weight": 3
+    }
+  ],
+  "weeklyTransactions": [
+  ]
+}
