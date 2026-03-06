@@ -1,3 +1,8 @@
 {
-  "cashFlows": []
+  "cashFlows": [{
+            "date": "2026-03-02",
+            "type": "转入",
+            "amount": 8000,
+            "description": "初始投资"
+        }]
 }

@@ -36,7 +36,7 @@
       "id": "pipixia",
       "sitename": "皮皮虾",
       "currency": "CNY",
-      "initialInvestment": 8000,
+      "initialInvestment": 0,
       "startDate": "2026-02-28",
       "icon": "images/icon/pipixia.png"
     }

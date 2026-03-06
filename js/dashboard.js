@@ -135,7 +135,6 @@ async function loadCombinedData() {
         
         // 按周次排序
         const sortedWeeks = Array.from(allWeeks).sort();
-        console.log('排序后的周次:', sortedWeeks);
         
         // 按货币类型分组计算资产
         const currencies = ['USD', 'CNY'];
@@ -156,15 +155,30 @@ async function loadCombinedData() {
             }
         });
         
-        // 计算每周每种货币的资产总和
+        // 为每个站点加载资金流水数据
+        const cashFlowsData = {};
+        for (const sourceData of allSourcesData) {
+            try {
+                const cashFlows = await App.loadCashFlows(sourceData.sourceId);
+                cashFlowsData[sourceData.sourceId] = cashFlows;
+            } catch (error) {
+                cashFlowsData[sourceData.sourceId] = [];
+            }
+        }
+        
+        // 计算每周每种货币的资产总和和调整后的初始投资
         const combinedData = sortedWeeks.map(weekId => {
             const weekData = { weekId };
             
             currencies.forEach(currency => {
                 let totalAssets = 0;
+                let totalAdjustedInvestment = 0;
                 
                 allSourcesData.forEach(sourceData => {
                     if (sourceData.currency === currency) {
+                        // 获取该站点的资金流水数据
+                        const cashFlows = cashFlowsData[sourceData.sourceId] || [];
+                        
                         // 查找该周的数据
                         const weekReport = sourceData.reports.find(r => r.id === weekId);
                         let assets = 0;
@@ -191,18 +205,39 @@ async function loadCombinedData() {
                             }
                         }
                         
+                        // 计算该站点到该时间点为止的累计资金流入
+                        let cumulativeCashInflow = 0;
+                        
+                        // 使用周报的updateDate作为该周的结束日期
+                        if (weekReport && weekReport.updateDate) {
+                            const weekEndDate = new Date(weekReport.updateDate.split(' ')[0]);
+                            
+                            cashFlows.forEach(flow => {
+                                const flowDate = new Date(flow.date);
+                                if (flowDate <= weekEndDate) {
+                                    if (flow.type === '转入') {
+                                        cumulativeCashInflow += flow.amount;
+                                    } else if (flow.type === '转出') {
+                                        cumulativeCashInflow -= flow.amount;
+                                    }
+                                }
+                            });
+                        }
+                        
+                        // 计算该站点的调整后初始投资
+                        const adjustedInvestment = Math.round((sourceData.initialInvestment + cumulativeCashInflow) * 100) / 100;
+                        
                         totalAssets += assets;
+                        totalAdjustedInvestment += adjustedInvestment;
                     }
                 });
                 
                 weekData[currency] = totalAssets;
+                weekData[`${currency}AdjustedInvestment`] = Math.round(totalAdjustedInvestment * 100) / 100;
             });
             
             return weekData;
         });
-        
-        console.log('综合数据计算完成，数据点数量:', combinedData.length);
-        console.log('货币数据:', currencyData);
         
         // 提取标签和数据
         const labels = combinedData.map(data => {
@@ -213,7 +248,7 @@ async function loadCombinedData() {
         // 为每种货币准备数据
         const datasets = currencies.map(currency => {
             const assetsData = combinedData.map(data => data[currency]);
-            const initialInvestmentData = combinedData.map(() => currencyData[currency].initialInvestment);
+            const initialInvestmentData = combinedData.map(data => data[`${currency}AdjustedInvestment`]);
             
             return {
                 currency: currency,
@@ -221,8 +256,6 @@ async function loadCombinedData() {
                 initialInvestmentData: initialInvestmentData
             };
         });
-        
-        console.log('图表数据准备完成:', { labels: labels.length, datasets: datasets.length });
         
         // 绘制综合总资产图表
         drawCombinedAssetsChart(labels, datasets);
