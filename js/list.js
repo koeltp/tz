@@ -59,8 +59,10 @@ async function updateWeeklyReportsList() {
         document.getElementById('total-assets').textContent = 
             App.formatCurrency(totalAssets);
         
-        document.getElementById('total-return').textContent = 
-            App.formatCurrency(totalReturn);
+        const totalReturnElement = document.getElementById('total-return');
+        totalReturnElement.textContent = App.formatCurrency(totalReturn);
+        totalReturnElement.className = 
+            `stat-value ${totalReturn >= 0 ? 'positive' : 'negative'}`;
         
         const totalChangeElement = document.getElementById('total-change');
         totalChangeElement.textContent = App.formatPercent(totalReturnRate);
