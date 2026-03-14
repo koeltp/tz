@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>汇率查询与转换器 - TP投资</title>
+    <link rel="icon" href="images/logo.png" type="image/x-icon" />
+    <meta name="keywords" content="汇率查询, 货币转换, USD, HKD, CNY, 实时汇率" />
+    <meta
+      name="description"
+      content="TP投资汇率查询与转换器，提供USD、HKD、CNY三种货币的实时汇率和双向转换功能。"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK7GS5KGYF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-PK7GS5KGYF');
+    </script>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/exchange.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+    </noscript>
+    
+    <script
+      charset="UTF-8"
+      id="LA_COLLECT"
+      src="//sdk.51.la/js-sdk-pro.min.js"
+    ></script>
+    <script>
+      LA.init({
+        id: "3OgR3Wy34bzHyG7a",
+        ck: "3OgR3Wy34bzHyG7a",
+        autoTrack: true,
+        hashMode: true,
+        screenRecord: true,
+      });
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/logo.png" alt="TP投资 Logo" class="logo-image" />
+            <div class="logo-text">TP投资</div>
+          </a>
+        </div>
+
+        <button class="nav-toggle" id="navToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="header-nav" id="headerNav">
+          <li class="header-nav-item">
+            <a href="index.html" class="header-nav-link">
+              <i class="fas fa-home"></i>
+              <span>首页</span>
+            </a>
+          </li>
+          <li class="header-nav-item">
+            <a href="timeline.html" class="header-nav-link">
+              <i class="fas fa-history"></i>
+              <span>时光机</span>
+            </a>
+          </li>
+          <li class="header-nav-item">
+            <a href="partner.html" class="header-nav-link">
+              <i class="fas fa-users"></i>
+              <span>合伙人</span>
+            </a>
+          </li>
+          <li class="header-nav-item">
+            <a href="about.html" class="header-nav-link">
+              <i class="fas fa-info-circle"></i>
+              <span>关于我们</span>
+            </a>
+          </li>
+          <li class="header-nav-item">
+            <a href="dashboard.html" class="header-nav-link">
+              <i class="fas fa-chart-line"></i>
+              <span>仪表板</span>
+            </a>
+          </li>
+          <li class="header-nav-item">
+            <a href="exchange.html" class="header-nav-link active">
+              <i class="fas fa-exchange-alt"></i>
+              <span>汇率查询</span>
+            </a>
+          </li>
+          <li class="header-nav-item dropdown">
+            <a href="#" class="header-nav-link dropdown-toggle">
+              <i class="fas fa-exchange-alt"></i>
+              <span id="current-source">TP投资</span>
+              <i class="fas fa-chevron-down dropdown-arrow"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- 下拉菜单选项将通过JS动态加载 -->
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container">
+        <!-- 汇率页面标题 -->
+        <div class="exchange-header">
+            <h1><i class="fas fa-exchange-alt"></i>汇率查询与转换器</h1>
+            <p class="update-time" id="last-update">正在获取汇率数据...</p>
+        </div>
+
+        <!-- 货币转换器 -->
+        <div class="converter-wrapper">
+            <div class="converter-box">
+                <!-- 源货币 -->
+                <div class="currency-input-group" id="from-box">
+                    <div class="currency-select" id="from-select">
+                        <img class="currency-flag" id="from-flag" src="images/icon/cn.png" alt="CNY">
+                        <div class="currency-info">
+                            <span class="currency-code" id="from-code">CNY</span>
+                            <span class="currency-name" id="from-name">人民币</span>
+                        </div>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                        <!-- 下拉菜单 -->
+                        <div class="currency-dropdown" id="from-dropdown" style="display: none;">
+                            <div class="dropdown-item" data-currency="USD" data-flag="images/icon/us.png" data-name="美元">
+                                <img class="dropdown-flag" src="images/icon/us.png" alt="USD">
+                                <div class="dropdown-info">
+                                    <span class="dropdown-code">USD</span>
+                                    <span class="dropdown-name">美元</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-item" data-currency="HKD" data-flag="images/icon/hk.png" data-name="港币">
+                                <img class="dropdown-flag" src="images/icon/hk.png" alt="HKD">
+                                <div class="dropdown-info">
+                                    <span class="dropdown-code">HKD</span>
+                                    <span class="dropdown-name">港币</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-item" data-currency="CNY" data-flag="images/icon/cn.png" data-name="人民币">
+                                <img class="dropdown-flag" src="images/icon/cn.png" alt="CNY">
+                                <div class="dropdown-info">
+                                    <span class="dropdown-code">CNY</span>
+                                    <span class="dropdown-name">人民币</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="number" id="convert-amount" value="100" min="0" step="0.01" class="amount-input">
+                </div>
+
+                <!-- 交换按钮 -->
+                <button class="swap-btn" id="swap-btn" title="交换货币">
+                    <i class="fas fa-exchange-alt"></i>
+                </button>
+
+                <!-- 目标货币 -->
+                <div class="currency-input-group" id="to-box">
+                    <div class="currency-select" id="to-select">
+                        <img class="currency-flag" id="to-flag" src="images/icon/us.png" alt="USD">
+                        <div class="currency-info">
+                            <span class="currency-code" id="to-code">USD</span>
+                            <span class="currency-name" id="to-name">美元</span>
+                        </div>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                        <!-- 下拉菜单 -->
+                        <div class="currency-dropdown" id="to-dropdown" style="display: none;">
+                            <div class="dropdown-item" data-currency="USD" data-flag="images/icon/us.png" data-name="美元">
+                                <img class="dropdown-flag" src="images/icon/us.png" alt="USD">
+                                <div class="dropdown-info">
+                                    <span class="dropdown-code">USD</span>
+                                    <span class="dropdown-name">美元</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-item" data-currency="HKD" data-flag="images/icon/hk.png" data-name="港币">
+                                <img class="dropdown-flag" src="images/icon/hk.png" alt="HKD">
+                                <div class="dropdown-info">
+                                    <span class="dropdown-code">HKD</span>
+                                    <span class="dropdown-name">港币</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-item" data-currency="CNY" data-flag="images/icon/cn.png" data-name="人民币">
+                                <img class="dropdown-flag" src="images/icon/cn.png" alt="CNY">
+                                <div class="dropdown-info">
+                                    <span class="dropdown-code">CNY</span>
+                                    <span class="dropdown-name">人民币</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="number" id="result-amount" value="0" min="0" step="0.01" class="amount-input">
+                </div>
+            </div>
+        </div>
+
+        <!-- 汇率卡片 -->
+        <div class="exchange-grid" id="exchange-grid">
+            <!-- 动态生成汇率卡片 -->
+        </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container"></div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/source-switcher.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/exchange.js"></script>
+  </body>
+</html>
