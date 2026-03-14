@@ -39,7 +39,7 @@ async function processDashboardData(reports) {
     // 提取数据
     const labels = sortedReports.map(report => {
         const [year, week] = report.id.match(/(\d{2})(\d{2})/).slice(1);
-        return `20${year}年第${week}周`;
+        return `${year}${week}`;
     });
     
     const assetsData = sortedReports.map(report => report.totalAssets);
@@ -101,7 +101,7 @@ async function loadCombinedData() {
         // 提取标签和数据
         const labels = sortedWeeks.map(weekId => {
             const [year, week] = weekId.match(/(\d{2})(\d{2})/).slice(1);
-            return `20${year}年第${week}周`;
+            return `${year}${week}`;
         });
         
         // 为每种货币准备数据
@@ -125,8 +125,84 @@ async function loadCombinedData() {
         // 绘制综合总资产图表
         drawCombinedAssetsChart(labels, datasets);
         
+        // 加载各站点最新一周数据并绘制环形图
+        await loadLatestWeekDataForDoughnutCharts();
+        
     } catch (error) {
         console.error('加载综合数据失败:', error);
+    }
+}
+
+// 加载各站点最新一周数据并绘制环形图
+async function loadLatestWeekDataForDoughnutCharts() {
+    try {
+        // 获取站点配置
+        if (!App.siteConfig || !App.siteConfig.sources) {
+            console.error('站点配置未加载');
+            return;
+        }
+        
+        const sources = App.siteConfig.sources;
+        const latestWeekData = [];
+        
+        // 计算当前周ID
+        const now = new Date();
+        const year = now.getFullYear();
+        const week = getWeekNumber(now);
+        const yearShort = year.toString().slice(-2);
+        const weekStr = week.toString().padStart(2, '0');
+        const currentWeekId = yearShort + weekStr;
+        
+        // 尝试获取当前周和前一周的数据
+        const weekIds = [currentWeekId];
+        // 如果当前周没有数据，尝试前一周
+        const prevWeek = week > 1 ? week - 1 : 52;
+        const prevYearShort = week > 1 ? yearShort : (parseInt(yearShort) - 1).toString().padStart(2, '0');
+        const prevWeekStr = prevWeek.toString().padStart(2, '0');
+        const prevWeekId = prevYearShort + prevWeekStr;
+        weekIds.push(prevWeekId);
+        
+        // 遍历所有站点
+        for (const source of sources) {
+            let foundData = false;
+            
+            // 尝试加载最近的周数据
+            for (const weekId of weekIds) {
+                try {
+                    const response = await fetch(`data/${source.id}/${weekId}.json`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        latestWeekData.push({
+                            sourceId: source.id,
+                            sourceName: source.sitename,
+                            currency: source.currency,
+                            totalAssets: data.totalAssets || 0
+                        });
+                        foundData = true;
+                        break;
+                    }
+                } catch (error) {
+                    // 文件不存在，继续尝试下一周
+                }
+            }
+            
+            if (!foundData) {
+                // 如果没有找到数据，添加默认值
+                latestWeekData.push({
+                    sourceId: source.id,
+                    sourceName: source.sitename,
+                    currency: source.currency,
+                    totalAssets: 0
+                });
+            }
+        }
+        
+        // 绘制环形图
+        drawUSDDoughnutChart(latestWeekData);
+        drawCNYDoughnutChart(latestWeekData);
+        
+    } catch (error) {
+        console.error('加载环形图数据失败:', error);
     }
 }
 
@@ -280,7 +356,7 @@ function drawCombinedTrendChart(labels, assetsData, initialInvestmentData, retur
                     beginAtZero: false,
                     title: {
                         display: true,
-                        text: '资产价值'
+                        text: '金额'
                     },
                     ticks: {
                         callback: function(value) {
@@ -320,8 +396,6 @@ function drawCombinedTrendChart(labels, assetsData, initialInvestmentData, retur
 // 绘制综合总资产图表
 function drawCombinedAssetsChart(labels, datasets) {
     const ctx = document.getElementById('combinedAssetsChart').getContext('2d');
-    
-    console.log('绘制综合总资产图表:', { labels, datasets });
     
     // 货币颜色配置
     const currencyColors = {
@@ -417,7 +491,7 @@ function drawCombinedAssetsChart(labels, datasets) {
                     beginAtZero: false,
                     title: {
                         display: true,
-                        text: '资产价值'
+                        text: '金额'
                     },
                     ticks: {
                         callback: function(value) {
@@ -472,6 +546,138 @@ async function calculatePerformanceMetrics(reports, initialInvestment) {
         cashInflowElement.textContent = `${totalCashInflow >= 0 ? '+' : ''}${App.formatCurrency(totalCashInflow)}`;
         cashInflowElement.className = `stat-value ${totalCashInflow >= 0 ? 'positive' : 'negative'}`;
     }
+}
+
+// 绘制USD站点资产分布环形图
+function drawUSDDoughnutChart(data) {
+    const ctx = document.getElementById('usdPolarChart').getContext('2d');
+    
+    // 筛选USD站点数据
+    const usdData = data.filter(item => item.currency === 'USD');
+    
+    if (usdData.length === 0) {
+        // 没有USD站点数据
+        ctx.canvas.parentElement.innerHTML = `
+            <div class="empty-chart">
+                <i class="fas fa-info-circle"></i>
+                <p>暂无USD站点数据</p>
+            </div>
+        `;
+        return;
+    }
+    
+    const labels = usdData.map(item => item.sourceName);
+    const values = usdData.map(item => item.totalAssets);
+    
+    // 生成颜色
+    const backgroundColors = usdData.map((_, index) => {
+        const hue = (index * 137.508) % 360;
+        return `hsla(${hue}, 70%, 60%, 0.7)`;
+    });
+    
+    const borderColors = usdData.map((_, index) => {
+        const hue = (index * 137.508) % 360;
+        return `hsla(${hue}, 70%, 50%, 1)`;
+    });
+    
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: '总资产 (USD)',
+                data: values,
+                backgroundColor: backgroundColors,
+                borderColor: borderColors,
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const value = context.parsed;
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            const percentage = ((value / total) * 100).toFixed(2);
+                            return `${context.label}: $${value.toFixed(2)} (${percentage}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// 绘制CNY站点资产分布环形图
+function drawCNYDoughnutChart(data) {
+    const ctx = document.getElementById('cnyPolarChart').getContext('2d');
+    
+    // 筛选CNY站点数据
+    const cnyData = data.filter(item => item.currency === 'CNY');
+    
+    if (cnyData.length === 0) {
+        // 没有CNY站点数据
+        ctx.canvas.parentElement.innerHTML = `
+            <div class="empty-chart">
+                <i class="fas fa-info-circle"></i>
+                <p>暂无CNY站点数据</p>
+            </div>
+        `;
+        return;
+    }
+    
+    const labels = cnyData.map(item => item.sourceName);
+    const values = cnyData.map(item => item.totalAssets);
+    
+    // 生成颜色
+    const backgroundColors = cnyData.map((_, index) => {
+        const hue = (index * 137.508) % 360;
+        return `hsla(${hue}, 70%, 60%, 0.7)`;
+    });
+    
+    const borderColors = cnyData.map((_, index) => {
+        const hue = (index * 137.508) % 360;
+        return `hsla(${hue}, 70%, 50%, 1)`;
+    });
+    
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: '总资产 (CNY)',
+                data: values,
+                backgroundColor: backgroundColors,
+                borderColor: borderColors,
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const value = context.parsed;
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            const percentage = ((value / total) * 100).toFixed(2);
+                            return `${context.label}: ¥${value.toFixed(2)} (${percentage}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    });
 }
 
 // 显示错误信息

@@ -46,6 +46,10 @@
     overflow: hidden;
 }
 
+.dashboard-card:last-child {
+    margin-bottom: 30px;
+}
+
 .card-header {
     background: #f8f9fa;
     padding: 20px 30px;
@@ -113,22 +117,57 @@
     color: var(--danger-color);
 }
 
+/* 图表行和列布局 */
+.chart-row {
+    display: flex;
+    gap: 30px;
+    margin: 0 -15px;
+}
+
+.chart-col {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.chart-title {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.chart-title i {
+    margin-right: 8px;
+    color: var(--accent-color);
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .dashboard-header h1 {
         font-size: 1.8rem;
     }
-    
+
     .card-body {
         padding: 20px;
     }
-    
+
     .chart-container {
         height: 350px;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
+    }
+
+    .chart-row {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .chart-col {
+        padding: 0;
     }
 }
 

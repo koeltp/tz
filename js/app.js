@@ -26,7 +26,6 @@ const App = {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 this.siteConfig = await response.json();
-                console.log('Site config loaded:', this.siteConfig);
                 return this.siteConfig;
             } catch (error) {
                 console.error('加载站点配置失败:', error);
