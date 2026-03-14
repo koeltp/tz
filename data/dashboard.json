@@ -1,0 +1,146 @@
+{
+  "2552": {
+    "USD": {
+      "totalAssets": 25377.78,
+      "totalMarketValue": 0,
+      "totalInvestment": 25377.78
+    },
+    "CNY": {
+      "totalAssets": 0,
+      "totalMarketValue": 0,
+      "totalInvestment": 0
+    }
+  },
+  "2601": {
+    "USD": {
+      "totalAssets": 26863.19,
+      "totalMarketValue": 10824.99,
+      "totalInvestment": 25377.78
+    },
+    "CNY": {
+      "totalAssets": 0,
+      "totalMarketValue": 0,
+      "totalInvestment": 0
+    }
+  },
+  "2602": {
+    "USD": {
+      "totalAssets": 23403.23,
+      "totalMarketValue": 15878.9,
+      "totalInvestment": 25377.78
+    },
+    "CNY": {
+      "totalAssets": 0,
+      "totalMarketValue": 0,
+      "totalInvestment": 0
+    }
+  },
+  "2603": {
+    "USD": {
+      "totalAssets": 20108.44,
+      "totalMarketValue": 14880.44,
+      "totalInvestment": 25377.78
+    },
+    "CNY": {
+      "totalAssets": 0,
+      "totalMarketValue": 0,
+      "totalInvestment": 0
+    }
+  },
+  "2604": {
+    "USD": {
+      "totalAssets": 82220.01,
+      "totalMarketValue": 22800.41,
+      "totalInvestment": 63407.3
+    },
+    "CNY": {
+      "totalAssets": 536536.23,
+      "totalMarketValue": 535336,
+      "totalInvestment": 574061.62
+    }
+  },
+  "2605": {
+    "USD": {
+      "totalAssets": 68995.05,
+      "totalMarketValue": 33728.29,
+      "totalInvestment": 63407.3
+    },
+    "CNY": {
+      "totalAssets": 526102.23,
+      "totalMarketValue": 524902,
+      "totalInvestment": 574061.62
+    }
+  },
+  "2606": {
+    "USD": {
+      "totalAssets": 57252.31,
+      "totalMarketValue": 29369.77,
+      "totalInvestment": 63407.3
+    },
+    "CNY": {
+      "totalAssets": 513787.23,
+      "totalMarketValue": 81700,
+      "totalInvestment": 574061.62
+    }
+  },
+  "2607": {
+    "USD": {
+      "totalAssets": 55559.68,
+      "totalMarketValue": 27655.61,
+      "totalInvestment": 63407.3
+    },
+    "CNY": {
+      "totalAssets": 513787.23,
+      "totalMarketValue": 81700,
+      "totalInvestment": 574061.62
+    }
+  },
+  "2608": {
+    "USD": {
+      "totalAssets": 79227.45,
+      "totalMarketValue": 26965.58,
+      "totalInvestment": 63407.3
+    },
+    "CNY": {
+      "totalAssets": 505987.92,
+      "totalMarketValue": 505867,
+      "totalInvestment": 574061.62
+    }
+  },
+  "2609": {
+    "USD": {
+      "totalAssets": 70384.65,
+      "totalMarketValue": 14946,
+      "totalInvestment": 55169.3
+    },
+    "CNY": {
+      "totalAssets": 450120.68,
+      "totalMarketValue": 455471,
+      "totalInvestment": 542452.89
+    }
+  },
+  "2610": {
+    "USD": {
+      "totalAssets": 65947.39,
+      "totalMarketValue": 13838.83,
+      "totalInvestment": 55169.3
+    },
+    "CNY": {
+      "totalAssets": 456672.34,
+      "totalMarketValue": 460833,
+      "totalInvestment": 542452.89
+    }
+  },
+  "2611": {
+    "USD": {
+      "totalAssets": 65947.39,
+      "totalMarketValue": 13838.83,
+      "totalInvestment": 55169.3
+    },
+    "CNY": {
+      "totalAssets": 456672.34,
+      "totalMarketValue": 460833,
+      "totalInvestment": 542452.89
+    }
+  }
+}

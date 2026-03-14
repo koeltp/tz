@@ -19,7 +19,11 @@ TP投资每周发布投资组合周报，详细介绍投资组合的表现、市
 - **H标签层次结构**：正确使用H1-H6标签，确保页面结构清晰
 - **移动响应式设计**：确保在移动设备上有良好的用户体验
 - **Google Analytics集成**：使用gtag.js跟踪网站流量
-
+### 汇总数据
+项目包含一个data/dashboard.json文件，用于汇总所有周报的资产和市值数据。执行以下命令生成：
+```bash
+node js/weekly-summary.js
+```
 ### 自动生成sitemap.xml
 项目包含一个Node.js脚本，用于自动生成sitemap.xml文件：
 

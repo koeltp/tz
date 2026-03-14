@@ -82,173 +82,38 @@ async function processDashboardData(reports) {
 // 加载所有站点的综合数据
 async function loadCombinedData() {
     try {
-        // 获取站点配置
-        const siteConfig = await App.initSiteConfig();
+        // 从data/dashboard.json加载汇总数据
+        const response = await fetch('data/dashboard.json');
+        if (!response.ok) {
+            throw new Error('Failed to load dashboard data');
+        }
         
-        if (!siteConfig || !siteConfig.sources || siteConfig.sources.length === 0) {
-            console.log('没有配置数据源');
+        const dashboardData = await response.json();
+        
+        // 提取所有周次并排序
+        const sortedWeeks = Object.keys(dashboardData).sort();
+        
+        if (sortedWeeks.length === 0) {
+            console.log('没有可用的汇总数据');
             return;
         }
-        
-        console.log('开始加载综合数据，数据源数量:', siteConfig.sources.length);
-        
-        // 收集所有站点的数据
-        const allSourcesData = [];
-        let allWeeks = new Set();
-        
-        for (const source of siteConfig.sources) {
-            try {
-                console.log(`加载数据源: ${source.id}`);
-                
-                // 加载该数据源的所有周报 - 使用与App相同的方式
-                const reports = await loadAllReportsForSource(source.id, source.startDate);
-                
-                if (!reports || reports.length === 0) {
-                    console.warn(`数据源 ${source.id} 没有周报数据`);
-                    continue;
-                }
-                
-                console.log(`数据源 ${source.id} 加载成功，周报数量:`, reports.length);
-                
-                allSourcesData.push({
-                    sourceId: source.id,
-                    sourceName: source.sitename || source.name || source.id,
-                    reports: reports,
-                    initialInvestment: source.initialInvestment || 0,
-                    currency: source.currency || 'USD'
-                });
-                
-                // 收集所有周次
-                reports.forEach(report => allWeeks.add(report.id));
-            } catch (error) {
-                console.warn(`加载数据源 ${source.id} 失败:`, error);
-            }
-        }
-        
-        console.log('成功加载的数据源数量:', allSourcesData.length);
-        console.log('所有周次数量:', allWeeks.size);
-        
-        if (allSourcesData.length === 0) {
-            console.log('没有可用的数据源数据');
-            return;
-        }
-        
-        // 按周次排序
-        const sortedWeeks = Array.from(allWeeks).sort();
-        
-        // 按货币类型分组计算资产
-        const currencies = ['USD', 'CNY'];
-        const currencyData = {};
-        
-        // 初始化每种货币的数据结构
-        currencies.forEach(currency => {
-            currencyData[currency] = {
-                assets: [],
-                initialInvestment: 0
-            };
-        });
-        
-        // 计算每种货币的初始投资总和
-        allSourcesData.forEach(sourceData => {
-            if (currencies.includes(sourceData.currency)) {
-                currencyData[sourceData.currency].initialInvestment += sourceData.initialInvestment || 0;
-            }
-        });
-        
-        // 为每个站点加载资金流水数据
-        const cashFlowsData = {};
-        for (const sourceData of allSourcesData) {
-            try {
-                const cashFlows = await App.loadCashFlows(sourceData.sourceId);
-                cashFlowsData[sourceData.sourceId] = cashFlows;
-            } catch (error) {
-                cashFlowsData[sourceData.sourceId] = [];
-            }
-        }
-        
-        // 计算每周每种货币的资产总和和调整后的初始投资
-        const combinedData = sortedWeeks.map(weekId => {
-            const weekData = { weekId };
-            
-            currencies.forEach(currency => {
-                let totalAssets = 0;
-                let totalAdjustedInvestment = 0;
-                
-                allSourcesData.forEach(sourceData => {
-                    if (sourceData.currency === currency) {
-                        // 获取该站点的资金流水数据
-                        const cashFlows = cashFlowsData[sourceData.sourceId] || [];
-                        
-                        // 查找该周的数据
-                        const weekReport = sourceData.reports.find(r => r.id === weekId);
-                        let assets = 0;
-                        
-                        if (weekReport) {
-                            assets = weekReport.totalAssets;
-                        } else {
-                            // 如果该周没有数据，使用最近一周的数据
-                            const sortedReports = [...sourceData.reports].sort((a, b) => a.id.localeCompare(b.id));
-                            const lastReport = sortedReports[sortedReports.length - 1];
-                            if (lastReport && weekId > lastReport.id) {
-                                // 如果查询的周次在该数据源最后一周之后，使用最后一周的数据
-                                assets = lastReport.totalAssets;
-                            } else {
-                                // 查找最近的前一周数据
-                                const prevReports = sortedReports.filter(r => r.id < weekId);
-                                if (prevReports.length > 0) {
-                                    const prevReport = prevReports[prevReports.length - 1];
-                                    assets = prevReport.totalAssets;
-                                } else {
-                                    // 如果没有历史数据，使用启动资金
-                                    assets = sourceData.initialInvestment;
-                                }
-                            }
-                        }
-                        
-                        // 计算该站点到该时间点为止的累计资金流入
-                        let cumulativeCashInflow = 0;
-                        
-                        // 使用周报的updateDate作为该周的结束日期
-                        if (weekReport && weekReport.updateDate) {
-                            const weekEndDate = new Date(weekReport.updateDate.split(' ')[0]);
-                            
-                            cashFlows.forEach(flow => {
-                                const flowDate = new Date(flow.date);
-                                if (flowDate <= weekEndDate) {
-                                    if (flow.type === '转入') {
-                                        cumulativeCashInflow += flow.amount;
-                                    } else if (flow.type === '转出') {
-                                        cumulativeCashInflow -= flow.amount;
-                                    }
-                                }
-                            });
-                        }
-                        
-                        // 计算该站点的调整后初始投资
-                        const adjustedInvestment = Math.round((sourceData.initialInvestment + cumulativeCashInflow) * 100) / 100;
-                        
-                        totalAssets += assets;
-                        totalAdjustedInvestment += adjustedInvestment;
-                    }
-                });
-                
-                weekData[currency] = totalAssets;
-                weekData[`${currency}AdjustedInvestment`] = Math.round(totalAdjustedInvestment * 100) / 100;
-            });
-            
-            return weekData;
-        });
         
         // 提取标签和数据
-        const labels = combinedData.map(data => {
-            const [year, week] = data.weekId.match(/(\d{2})(\d{2})/).slice(1);
+        const labels = sortedWeeks.map(weekId => {
+            const [year, week] = weekId.match(/(\d{2})(\d{2})/).slice(1);
             return `20${year}年第${week}周`;
         });
         
         // 为每种货币准备数据
+        const currencies = ['USD', 'CNY'];
         const datasets = currencies.map(currency => {
-            const assetsData = combinedData.map(data => data[currency]);
-            const initialInvestmentData = combinedData.map(data => data[`${currency}AdjustedInvestment`]);
+            const assetsData = sortedWeeks.map(weekId => {
+                return dashboardData[weekId][currency].totalAssets || 0;
+            });
+            
+            const initialInvestmentData = sortedWeeks.map(weekId => {
+                return dashboardData[weekId][currency].totalInvestment || 0;
+            });
             
             return {
                 currency: currency,

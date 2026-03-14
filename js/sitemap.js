@@ -6,7 +6,10 @@ const config = {
   baseUrl: 'https://tptz.taipi.top',
   dataDirs: {
     tptz: path.join(__dirname, '..', 'data', 'tptz'),
-    xszb: path.join(__dirname, '..', 'data', 'xszb')
+    gshtz: path.join(__dirname, '..', 'data', 'gshtz'),
+    pipixia: path.join(__dirname, '..', 'data', 'pipixia'),
+    xszbcn: path.join(__dirname, '..', 'data', 'xszbcn'),
+    xszbus: path.join(__dirname, '..', 'data', 'xszbus')
   },
   outputDir: path.join(__dirname, '..')
 };
