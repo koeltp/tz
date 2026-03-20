@@ -5,6 +5,12 @@
             "type": "转出",
             "amount": 39608.73,
             "description": "减少投资"
+        },
+        {
+            "date": "2026-03-17",
+            "type": "转入",
+            "amount": 48000,
+            "description": "增加投资"
         }
     ]
 }

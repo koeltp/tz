@@ -24,18 +24,5 @@
       "weight": 3
     }
   ],
-  "weeklyTransactions": [
-    {
-      "date": "2026-03-20",
-      "type": "买入",
-      "stockName": "玲珑轮胎",
-      "price": 14.4
-    },
-    {
-      "date": "2026-03-19",
-      "type": "买入",
-      "stockName": "韵达股份",
-      "price": 6.8
-    }
-  ]
+  "weeklyTransactions": []
 }
