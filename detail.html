@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,28 +11,22 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK7GS5KGYF"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-PK7GS5KGYF');
+        gtag('config', 'G-PK7GS5KGYF');
     </script>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/detail.css">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      media="print"
-      onload="this.media='all'"
-    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
     <noscript>
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
 
 </head>
+
 <body>
     <header class="header fixed-header">
         <div class="container">
@@ -43,16 +38,28 @@
                     <div class="logo-text">TP投资</div>
                 </a>
             </div>
-            
+
             <button class="nav-toggle" id="navToggle">
                 <i class="fas fa-bars"></i>
             </button>
-            
+
             <ul class="header-nav" id="headerNav">
                 <li class="header-nav-item">
                     <a href="index.html" class="header-nav-link">
                         <i class="fas fa-home"></i>
                         <span>首页</span>
+                    </a>
+                </li>
+                <li class="header-nav-item">
+                    <a href="dashboard.html" class="header-nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>仪表板</span>
+                    </a>
+                </li>
+                <li class="header-nav-item">
+                    <a href="partner.html" class="header-nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>合伙人</span>
                     </a>
                 </li>
                 <li class="header-nav-item">
@@ -62,24 +69,18 @@
                     </a>
                 </li>
                 <li class="header-nav-item">
-            <a href="partner.html" class="header-nav-link">
-              <i class="fas fa-users"></i>
-              <span>合伙人</span>
-            </a>
-          </li>
-          <li class="header-nav-item">
-            <a href="about.html" class="header-nav-link">
-              <i class="fas fa-info-circle"></i>
-              <span>关于我们</span>
-            </a>
-          </li>
-          <li class="header-nav-item">
-            <a href="dashboard.html" class="header-nav-link">
-              <i class="fas fa-chart-line"></i>
-              <span>仪表板</span>
-            </a>
-          </li>
-          <li class="header-nav-item dropdown">
+                    <a href="exchange.html" class="header-nav-link">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>汇率查询</span>
+                    </a>
+                </li>
+                <li class="header-nav-item">
+                    <a href="about.html" class="header-nav-link">
+                        <i class="fas fa-info-circle"></i>
+                        <span>关于我们</span>
+                    </a>
+                </li>
+                <li class="header-nav-item dropdown">
                     <a href="#" class="header-nav-link dropdown-toggle">
                         <i class="fas fa-exchange-alt"></i>
                         <span id="current-source">TP投资</span>
@@ -92,7 +93,7 @@
             </ul>
         </div>
     </header>
-    
+
     <main class="container">
         <div class="week-header" id="week-header">
             <!-- 将通过JS动态加载周报标题 -->
@@ -113,7 +114,7 @@
                     <div class="stat-value" id="week-total-assets"></div>
                     <div class="stat-note">本周总资产</div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-header">
                         <h3>总市值</h3>
@@ -122,7 +123,7 @@
                     <div class="stat-value" id="week-market-value"></div>
                     <div class="stat-note">持仓股票市值</div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-header">
                         <h3>可用资金</h3>
@@ -131,7 +132,7 @@
                     <div class="stat-value" id="week-available-funds"></div>
                     <div class="stat-note">可交易现金</div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-header">
                         <h3>周度收益</h3>
@@ -151,7 +152,7 @@
                 <h2><i class="fas fa-boxes"></i> 本周持仓概览</h2>
                 <span class="badge" id="holdings-count">0 只股票</span>
             </div>
-            
+
             <div class="holdings-list-container">
                 <div class="holdings-list" id="holdings-list">
                     <!-- 持仓数据将通过JS动态加载 -->
@@ -164,7 +165,7 @@
                 <h2><i class="fas fa-exchange-alt"></i> 本周交易记录</h2>
                 <span class="badge" id="transactions-count">0 笔交易</span>
             </div>
-            
+
             <div class="table-container">
                 <table class="transactions-table" id="transactions-table">
                     <thead>
@@ -220,8 +221,8 @@
         // 2. 确保仓库已启用Discussions
         // 3. 配置仓库ID和主题
         // 详细配置请访问：https://giscus.app/
-        
-        (function() {
+
+        (function () {
             const script = document.createElement('script');
             script.src = 'https://giscus.app/client.js';
             script.setAttribute('data-repo', 'koeltp/tz'); // 替换为你的GitHub仓库
@@ -237,7 +238,7 @@
             script.setAttribute('data-lang', 'zh-CN');
             script.setAttribute('crossorigin', 'anonymous');
             script.async = true;
-            
+
             const container = document.getElementById('giscus-container');
             if (container) {
                 container.appendChild(script);
@@ -245,4 +246,5 @@
         })();
     </script>
 </body>
+
 </html>
