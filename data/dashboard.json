@@ -150,9 +150,21 @@
       "totalInvestment": 55169.3
     },
     "CNY": {
-      "totalAssets": 483444.26,
-      "totalMarketValue": 482018,
-      "totalInvestment": 590452.89
+      "totalAssets": 471555.19,
+      "totalMarketValue": 469872,
+      "totalInvestment": 591452.89
+    }
+  },
+  "2613": {
+    "USD": {
+      "totalAssets": 0,
+      "totalMarketValue": 0,
+      "totalInvestment": 0
+    },
+    "CNY": {
+      "totalAssets": 471555.19,
+      "totalMarketValue": 469872,
+      "totalInvestment": 591452.89
     }
   }
 }
