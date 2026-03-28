@@ -1,7 +1,7 @@
 {
-  "totalAssets": 47631.11,
-  "totalMarketValue": 14872.62,
-  "updateDate": "2026-03-21 10:38:55",
+  "totalAssets": 44093.64,
+  "totalMarketValue": 13078.66,
+  "updateDate": "2026-03-28 9:26:55",
   "holdings": [
     {
       "name": "RXRX",
@@ -29,6 +29,53 @@
     }
   ],
   "weeklyTransactions": [
-   
+    {
+      "date": "2026-03-27",
+      "type": "买入",
+      "stockName": "RKLB CALL 260717 80",
+      "price": 7
+    },
+    {
+      "date": "2026-03-27",
+      "type": "买入",
+      "stockName": "RKLB CALL 260417 100",
+      "price": 0.15
+    },
+    {
+      "date": "2026-03-27",
+      "type": "买入",
+      "stockName": "RKLB CALL 260417 100",
+      "price": 0.23
+    },
+    {
+      "date": "2026-03-27",
+      "type": "买入",
+      "stockName": "RKLB CALL 260717 80",
+      "price": 7.3
+    },
+    {
+      "date": "2026-03-27",
+      "type": "买入",
+      "stockName": "HOOD CALL 260618 170",
+      "price": 0.07
+    },
+    {
+      "date": "2026-03-25",
+      "type": "卖出",
+      "stockName": "RKLB CALL 260717 80",
+      "price": 12.01
+    },
+    {
+      "date": "2026-03-24",
+      "type": "买入",
+      "stockName": "RKLB CALL 260717 80",
+      "price": 7.4
+    },
+    {
+      "date": "2026-03-23",
+      "type": "买入",
+      "stockName": "RKLB CALL 260417 100",
+      "price": 0.35
+    }
   ]
 }

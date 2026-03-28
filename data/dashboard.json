@@ -145,8 +145,8 @@
   },
   "2612": {
     "USD": {
-      "totalAssets": 64154.21,
-      "totalMarketValue": 17267.45,
+      "totalAssets": 59246.03,
+      "totalMarketValue": 15655.33,
       "totalInvestment": 55169.3
     },
     "CNY": {
@@ -157,9 +157,9 @@
   },
   "2613": {
     "USD": {
-      "totalAssets": 0,
-      "totalMarketValue": 0,
-      "totalInvestment": 0
+      "totalAssets": 59246.03,
+      "totalMarketValue": 15655.33,
+      "totalInvestment": 55169.3
     },
     "CNY": {
       "totalAssets": 471555.19,
