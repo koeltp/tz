@@ -1,7 +1,7 @@
 {
-  "totalAssets": 429897.31,
-  "totalMarketValue": 428662,
-  "updateDate": "2026-03-27 15:49:15",
+  "totalAssets": 426588.71,
+  "totalMarketValue": 426351,
+  "updateDate": "2026-04-03 19:20:15",
   "holdings": [
     {
       "name": "老板电器",
@@ -26,22 +26,28 @@
   ],
   "weeklyTransactions": [
      {
-      "date": "2026-03-23",
-      "type": "买入",
-      "stockName": "韵达股份",
-      "price": 6.46
-    },
-    {
-      "date": "2026-03-125",
-      "type": "买入",
-      "stockName": "韵达股份",
-      "price": 6.64
-    },
-    {
-      "date": "2026-03-125",
+      "date": "2026-03-31",
       "type": "卖出",
-      "stockName": "韵达股份",
-      "price": 6.67
+      "stockName": "华帝股份",
+      "price": 6.85
+    },
+    {
+      "date": "2026-03-31",
+      "type": "卖出",
+      "stockName": "华帝股份",
+      "price": 6.84
+    },
+    {
+      "date": "2026-03-31",
+      "type": "卖出",
+      "stockName": "老板电器",
+      "price": 21.09
+    },
+    {
+      "date": "2026-03-31",
+      "type": "买入",
+      "stockName": "玲珑轮胎",
+      "price": 14
     }
   ]
 }

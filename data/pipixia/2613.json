@@ -1,13 +1,31 @@
 {
-  "totalAssets": 9440.94,
-  "totalMarketValue": 9114,
-  "updateDate": "2026-3-27 15:52:15",
+  "totalAssets": 9852.96,
+  "totalMarketValue": 9772,
+  "updateDate": "2026-04-03 19:31:15",
   "holdings": [
     {
-      "name": "华帝股份",
-      "weight": 93.5
+      "name": "玲珑轮胎",
+      "weight": 99.2
     }
   ],
   "weeklyTransactions": [
+    {
+      "date": "2026-03-31",
+      "type": "买入",
+      "stockName": "玲珑轮胎",
+      "price": 14
+    },
+    {
+      "date": "2026-03-31",
+      "type": "卖出",
+      "stockName": "华帝股份",
+      "price": 6.85
+    },
+    {
+      "date": "2026-03-31",
+      "type": "卖出",
+      "stockName": "华帝股份",
+      "price": 6.83
+    }
   ]
 }

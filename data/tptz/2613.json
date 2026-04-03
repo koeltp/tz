@@ -1,7 +1,7 @@
 {
-  "totalAssets": 15152.39,
-  "totalMarketValue": 2576.67,
-  "updateDate": "2026-3-28 9:21:28",
+  "totalAssets": 15732.31,
+  "totalMarketValue": 2322.13,
+  "updateDate": "2026-04-03 19:23:28",
   "holdings": [
     {
       "name": "HOOD CALL 260618 170",
@@ -38,6 +38,12 @@
       "type": "买入",
       "stockName": "RKLB CALL 260717 80",
       "price": 7.3
+    },
+    {
+      "date": "2026-04-01",
+      "type": "卖出",
+      "stockName": "RKLB CALL 260717 80",
+      "price": 8.3
     }
   ]
 }
