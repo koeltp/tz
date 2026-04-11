@@ -12,6 +12,10 @@
       "weight": 85.3
     },
     {
+      "name": "华帝股份",
+      "weight": 2.7
+    },
+    {
       "name": "玲珑轮胎",
       "weight": 6.5
     },
@@ -20,18 +24,5 @@
       "weight": 3
     }
   ],
-  "weeklyTransactions": [
-    {
-      "date": "2026-04-10",
-      "type": "卖出",
-      "stockName": "华帝股份",
-      "price": 6.27
-    },
-    {
-      "date": "2026-04-09",
-      "type": "买入",
-      "stockName": "华帝股份 (融资)",
-      "price": 6.06
-    }
-  ]
+  "weeklyTransactions": []
 }

@@ -21,11 +21,6 @@
     }
   ],
   "weeklyTransactions": [
-    {
-      "date": "2026-04-08",
-      "type": "卖出",
-      "stockName": "RKLB CALL 260417 100",
-      "price": 0.06
-    }
+    
   ]
 }
