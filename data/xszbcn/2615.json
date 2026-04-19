@@ -1,7 +1,7 @@
 {
-  "totalAssets": 432497.35,
-  "totalMarketValue": 432064,
-  "updateDate": "2026-04-11 18:40:15",
+  "totalAssets": 431813.37,
+  "totalMarketValue": 451966,
+  "updateDate": "2026-04-19 16:02:15",
   "holdings": [
     {
       "name": "老板电器",
@@ -9,20 +9,51 @@
     },
     {
       "name": "口子窖",
-      "weight": 85.3
-    },
-    {
-      "name": "华帝股份",
-      "weight": 2.7
+      "weight": 84.2
     },
     {
       "name": "玲珑轮胎",
-      "weight": 6.5
+      "weight": 12.5
     },
     {
       "name": "韵达股份",
-      "weight": 3
+      "weight": 3.3
+    },
+    {
+      "name": "欧派家居",
+      "weight": 2.3
     }
   ],
-  "weeklyTransactions": []
+  "weeklyTransactions": [
+    {
+      "date": "2026-04-16",
+      "type": "卖出",
+      "stockName": "韵达股份",
+      "price": 6.96
+    },
+    {
+      "date": "2026-04-17",
+      "type": "买入",
+      "stockName": "韵达股份",
+      "price": 6.82
+    },
+    {
+      "date": "2026-04-14",
+      "type": "买入",
+      "stockName": "欧派家居(融资)",
+      "price": 49.47
+    },
+    {
+      "date": "2026-04-13",
+      "type": "买入",
+      "stockName": "老板电器(融资)",
+      "price": 49.47
+    },
+    {
+      "date": "2026-04-14",
+      "type": "买入",
+      "stockName": "欧派家居(融资)",
+      "price": 51.65
+    }
+  ]
 }

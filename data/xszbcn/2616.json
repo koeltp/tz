@@ -1,0 +1,30 @@
+{
+  "totalAssets": 431813.37,
+  "totalMarketValue": 451966,
+  "updateDate": "2026-04-19 16:02:15",
+  "holdings": [
+    {
+      "name": "老板电器",
+      "weight": 2.3
+    },
+    {
+      "name": "口子窖",
+      "weight": 84.2
+    },
+    {
+      "name": "玲珑轮胎",
+      "weight": 12.5
+    },
+    {
+      "name": "韵达股份",
+      "weight": 3.3
+    },
+    {
+      "name": "欧派家居",
+      "weight": 2.3
+    }
+  ],
+  "weeklyTransactions": [
+   
+  ]
+}
