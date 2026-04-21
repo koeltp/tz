@@ -5,7 +5,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         await App.initSiteConfig();
         
         // 加载当前数据源的周报数据
-        const allReports = await App.getAllWeeklyReports();
+        const sourceLoaded = await App.loadSourceFromStorage();
+        if (!sourceLoaded) {
+            showError('数据源加载失败，无法加载站点配置');
+            return;
+        }
+        const allReports = await App.getAllWeeklyReports(App.currentSource);
         
         if (!allReports || allReports.length === 0) {
             showError('暂无周报数据');
@@ -17,6 +22,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         
         // 加载所有站点的数据并绘制综合图表
         await loadCombinedData();
+        
+        // 加载每周收益汇总表格
+        await loadReturnsSummaryTable();
         
     } catch (error) {
         console.error('加载仪表板数据失败:', error);
@@ -694,4 +702,128 @@ function showError(message) {
             </a>
         </div>
     `;
+}
+
+// 加载每周收益汇总表格
+async function loadReturnsSummaryTable() {
+    try {
+        // 加载每周收益汇总数据
+        const returnsData = await loadReturnsSummaryData();
+        
+        if (!returnsData) {
+            updateReturnsSummaryTable([]);
+            return;
+        }
+        
+        // 填充周选择器
+        populateReturnsWeekSelector(returnsData);
+        
+        // 默认显示最新一周的数据
+        const sortedWeeks = Object.keys(returnsData).sort().reverse();
+        if (sortedWeeks.length > 0) {
+            const latestWeek = sortedWeeks[0];
+            updateReturnsSummaryTable(returnsData[latestWeek]);
+        }
+        
+        // 添加周选择器事件监听器
+        document.getElementById('returns-week-select').addEventListener('change', function() {
+            const selectedWeekId = this.value;
+            if (returnsData[selectedWeekId]) {
+                updateReturnsSummaryTable(returnsData[selectedWeekId]);
+            } else {
+                updateReturnsSummaryTable([]);
+            }
+        });
+        
+    } catch (error) {
+        console.error('加载收益汇总表格失败:', error);
+        updateReturnsSummaryTable([]);
+    }
+}
+
+// 加载每周收益汇总数据
+async function loadReturnsSummaryData() {
+    try {
+        const response = await fetch('data/weekly-returns-summary.json');
+        if (!response.ok) {
+            throw new Error('Failed to load returns summary data');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('加载收益汇总数据失败:', error);
+        return null;
+    }
+}
+
+// 填充收益汇总周选择器
+function populateReturnsWeekSelector(returnsData) {
+    const weekSelect = document.getElementById('returns-week-select');
+    weekSelect.innerHTML = '';
+    
+    // 按周ID排序（从新到旧）
+    const sortedWeeks = Object.keys(returnsData).sort().reverse();
+    
+    sortedWeeks.forEach(weekId => {
+        const option = document.createElement('option');
+        option.value = weekId;
+        option.textContent = `${weekId.substring(0, 2)}年第${weekId.substring(2)}周`;
+        weekSelect.appendChild(option);
+    });
+}
+
+// 更新收益汇总表格
+function updateReturnsSummaryTable(data) {
+    const tableBody = document.getElementById('returns-table-body');
+    
+    if (!data || Object.keys(data).length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="5" class="loading">暂无数据</td>
+            </tr>
+        `;
+        return;
+    }
+    
+    tableBody.innerHTML = '';
+    
+    Object.values(data).forEach(item => {
+        const row = document.createElement('tr');
+        
+        // 站点名称
+        const siteNameCell = document.createElement('td');
+        siteNameCell.textContent = item.siteName;
+        row.appendChild(siteNameCell);
+        
+        // 累计收益
+        const totalReturnCell = document.createElement('td');
+        const currencySymbol = item.currency === 'CNY' ? '¥' : '$';
+        const totalReturnValue = item.totalReturn >= 0 ? `+${currencySymbol}${item.totalReturn.toFixed(2)}` : `-${currencySymbol}${Math.abs(item.totalReturn.toFixed(2))}`;
+        totalReturnCell.textContent = totalReturnValue;
+        totalReturnCell.className = item.totalReturn >= 0 ? 'positive' : 'negative';
+        row.appendChild(totalReturnCell);
+        
+        // 累计收益率
+        const totalChangeCell = document.createElement('td');
+        const totalChangeValue = item.totalChange >= 0 ? `+${item.totalChange.toFixed(2)}%` : `${item.totalChange.toFixed(2)}%`;
+        totalChangeCell.textContent = totalChangeValue;
+        totalChangeCell.className = item.totalChange >= 0 ? 'positive' : 'negative';
+        row.appendChild(totalChangeCell);
+        
+        // 周度收益
+        const weekChangeCell = document.createElement('td');
+        const weekChangeValue = item.weekChange >= 0 ? `+${currencySymbol}${item.weekChange.toFixed(2)}` : `-${currencySymbol}${Math.abs(item.weekChange.toFixed(2))}`;
+        weekChangeCell.textContent = weekChangeValue;
+        weekChangeCell.className = item.weekChange >= 0 ? 'positive' : 'negative';
+        row.appendChild(weekChangeCell);
+        
+        // 周度收益率
+        const weekChangePercentCell = document.createElement('td');
+        const weekChangePercentValue = item.weekChangePercent >= 0 ? `+${item.weekChangePercent.toFixed(2)}%` : `${item.weekChangePercent.toFixed(2)}%`;
+        weekChangePercentCell.textContent = weekChangePercentValue;
+        weekChangePercentCell.className = item.weekChangePercent >= 0 ? 'positive' : 'negative';
+        row.appendChild(weekChangePercentCell);
+        
+        tableBody.appendChild(row);
+    });
 }

@@ -122,6 +122,8 @@
         </div>
       </div>
 
+
+
       <div class="dashboard-card">
         <div class="card-header">
           <h2><i class="fas fa-globe"></i> 综合总资产（所有站点）</h2>
@@ -132,6 +134,40 @@
           </div>
         </div>
       </div>
+
+      <div class="dashboard-card">
+        <div class="card-header returns-header">
+          <h2><i class="fas fa-table"></i> 每周收益汇总</h2>
+          <div class="week-selector">
+            <select id="returns-week-select" class="form-select returns-select">
+              <!-- 周选项将通过JS动态加载 -->
+            </select>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-container">
+            <table class="returns-table">
+              <thead>
+                <tr>
+                  <th>站点名称</th>
+                  <th>累计收益</th>
+                  <th>累计收益率</th>
+                  <th>周度收益</th>
+                  <th>周度收益率</th>
+                </tr>
+              </thead>
+              <tbody id="returns-table-body">
+                <!-- 表格数据将通过JS动态加载 -->
+                <tr>
+                  <td colspan="5" class="loading">加载中...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
       <div class="dashboard-card">
         <div class="card-header">
           <h2><i class="fas fa-chart-pie"></i> 站点资产分布</h2>
@@ -153,6 +189,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="dashboard-card">
         <div class="card-header">
           <h2><i class="fas fa-trophy"></i> 投资绩效</h2>

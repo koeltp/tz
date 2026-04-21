@@ -109,12 +109,132 @@
     color: #2c3e50;
 }
 
-.stat-value.positive {
+.stat-value.positive, .returns-table td.positive {
     color: var(--success-color);
 }
 
-.stat-value.negative {
+.stat-value.negative, .returns-table td.negative {
     color: var(--danger-color);
+}
+
+/* 每周收益汇总表格样式 */
+.returns-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.week-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.week-selector label {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.returns-select {
+    width: auto;
+    min-width: 150px;
+    border-radius: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    font-size: 14px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.returns-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.returns-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.returns-table th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    border-right: 1px solid #e0e0e0;
+}
+
+.returns-table th:last-child {
+    border-right: none;
+}
+
+.returns-table td {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.returns-table td:last-child {
+    border-right: none;
+}
+
+.returns-table tr {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.returns-table tr:hover {
+    background-color: rgba(102, 126, 234, 0.05);
+    transform: translateY(-1px);
+}
+
+.returns-table tr:nth-child(even) {
+    background-color: rgba(248, 249, 250, 0.5);
+}
+
+.returns-table td.positive {
+    font-weight: 600;
+    text-align: right;
+}
+
+.returns-table td.negative {
+    font-weight: 600;
+    text-align: right;
+}
+
+.returns-table th:nth-child(2),
+.returns-table th:nth-child(3),
+.returns-table th:nth-child(4),
+.returns-table th:nth-child(5) {
+    text-align: right;
+}
+
+.returns-table td:nth-child(2),
+.returns-table td:nth-child(3),
+.returns-table td:nth-child(4),
+.returns-table td:nth-child(5) {
+    text-align: right;
+    font-weight: 500;
+}
+
+.returns-table .loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 14px;
 }
 
 /* 图表行和列布局 */
