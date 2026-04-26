@@ -24,6 +24,10 @@ TP投资每周发布投资组合周报，详细介绍投资组合的表现、市
 ```bash
 node js/weekly-summary.js
 ```
+每周收益汇总，执行以下命令生成：
+```bash
+node js/weekly-returns-summary.js
+```
 ### 自动生成sitemap.xml
 项目包含一个Node.js脚本，用于自动生成sitemap.xml文件：
 

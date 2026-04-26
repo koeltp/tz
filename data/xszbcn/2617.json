@@ -21,17 +21,5 @@
     }
   ],
   "weeklyTransactions": [
-    {
-      "date": "2026-04-20",
-      "type": "买入",
-      "stockName": "欧派家居",
-      "price": 48.3
-    },
-    {
-      "date": "2026-04-21",
-      "type": "卖出",
-      "stockName": "韵达股份",
-      "price": 7.31
-    }
   ]
 }
