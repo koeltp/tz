@@ -1,0 +1,35 @@
+{
+  "totalAssets": 43660.7,
+  "totalMarketValue": 8792.19,
+  "updateDate": "2026-05-10 19:06:15",
+  "holdings": [
+    {
+      "name": "RXRX",
+      "weight": 3.78
+    },
+    {
+      "name": "RXRX CALL 260618 7",
+      "weight": 0.69
+    },
+    {
+      "name": "RXRX CALL 260618 5",
+      "weight": 1.01
+    },
+    {
+      "name": "HOOD CALL 260618 170",
+      "weight": 0.87
+    },
+    {
+      "name": "腾讯控股",
+      "weight": 13.79
+    }
+  ],
+  "weeklyTransactions": [
+    {
+      "date": "2026-04-28",
+      "type": "卖出",
+      "stockName": "腾讯控股",
+      "price": 480.4
+    }
+  ]
+}
