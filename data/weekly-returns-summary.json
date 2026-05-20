@@ -821,11 +821,11 @@
     "pipixia": {
       "siteName": "皮皮虾",
       "currency": "CNY",
-      "totalReturn": 355.96,
-      "totalChange": 3.96,
-      "weekChange": 0,
-      "weekChangePercent": 0,
-      "totalAssets": 9355.96,
+      "totalReturn": -8.04,
+      "totalChange": -0.09,
+      "weekChange": -364,
+      "weekChangePercent": -3.89,
+      "totalAssets": 8991.96,
       "adjustedInvestment": 9000
     }
   }
