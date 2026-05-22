@@ -24,12 +24,5 @@
       "weight": 13.79
     }
   ],
-  "weeklyTransactions": [
-    {
-      "date": "2026-05-21",
-      "type": "卖出",
-      "stockName": "RXRX CALL 260618 7",
-      "price": 0.01
-    }
-  ]
+  "weeklyTransactions": []
 }
