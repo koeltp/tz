@@ -25,17 +25,5 @@
     }
   ],
   "weeklyTransactions": [
-    {
-      "date": "2026-6-2",
-      "type": "买入",
-      "stockName": "口子窖",
-      "price": 21.82
-    },
-    {
-      "date": "2026-6-4",
-      "type": "买入",
-      "stockName": "口子窖",
-      "price": 20.47
-    }
   ]
 }
