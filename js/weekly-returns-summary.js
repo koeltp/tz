@@ -17,10 +17,10 @@ function readJsonFile(filePath) {
 }
 
 /**
- * 计算资金流水的累计流入
+ * 计算资金流水的累计流入（净流入 = 转入 - 转出）
  * @param {array} cashFlows - 资金流水数组
  * @param {string} endDateStr - 结束日期字符串
- * @returns {number} 累计资金流入
+ * @returns {number} 累计资金净流入
  */
 function calculateCumulativeCashInflow(cashFlows, endDateStr) {
     if (!cashFlows || !endDateStr) {
@@ -90,12 +90,13 @@ function generateWeeklyReturnsSummary() {
             .sort()
             .reverse();
 
-        const latestWeek = reportFiles.length > 0 ? reportFiles[0] : null;
+        // 原代码跳过了最新周，这里注释掉，改为处理所有周
+        // const latestWeek = reportFiles.length > 0 ? reportFiles[0] : null;
 
         reportFiles.forEach((file, index) => {
-            if (file === latestWeek) {
-                return;
-            }
+            // 原跳过逻辑：if (file === latestWeek) return; 现在去掉，处理全部周文件
+            // 如需跳过最新一周，请取消下面注释
+            if (index === 0) return;  // 跳过最新的第一周
 
             const weekId = file.replace('.json', '');
             const reportPath = path.join(sourceDir, file);
@@ -118,14 +119,32 @@ function generateWeeklyReturnsSummary() {
             let weekChange = 0;
             let weekChangePercent = 0;
 
+            // 计算周度收益：需要扣除本周净现金流入
             if (index < reportFiles.length - 1) {
                 const previousFile = reportFiles[index + 1];
                 const previousReportPath = path.join(sourceDir, previousFile);
                 const previousReport = readJsonFile(previousReportPath);
 
                 if (previousReport && previousReport.totalAssets) {
-                    weekChange = report.totalAssets - previousReport.totalAssets;
-                    weekChangePercent = previousReport.totalAssets > 0 ? (weekChange / previousReport.totalAssets) * 100 : 0;
+                    // 截止本周结束的累计净流入
+                    const currentDateStr = report.updateDate ? report.updateDate.split(' ')[0] : null;
+                    const cumInflowCurrent = calculateCumulativeCashInflow(cashFlows, currentDateStr);
+
+                    // 截止上周结束的累计净流入
+                    const prevDateStr = previousReport.updateDate ? previousReport.updateDate.split(' ')[0] : null;
+                    const cumInflowPrev = calculateCumulativeCashInflow(cashFlows, prevDateStr);
+
+                    // 本周净现金流入（正值表示净转入，负值表示净转出）
+                    const weekNetInflow = cumInflowCurrent - cumInflowPrev;
+
+                    // 原始资产变化
+                    const rawWeekChange = report.totalAssets - previousReport.totalAssets;
+
+                    // 扣除本周净现金流入，得到真实周度收益
+                    weekChange = rawWeekChange - weekNetInflow;
+                    weekChangePercent = previousReport.totalAssets > 0
+                        ? (weekChange / previousReport.totalAssets) * 100
+                        : 0;
                 }
             }
 
@@ -173,9 +192,6 @@ function outputSummary(weeklyReturnsSummary) {
             console.log('');
         });
     });
-
-    console.log('=== JSON格式汇总数据 ===');
-    console.log(JSON.stringify(weeklyReturnsSummary, null, 2));
 
     const summaryPath = path.join('data', 'weekly-returns-summary.json');
     try {
