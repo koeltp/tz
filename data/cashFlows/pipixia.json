@@ -11,6 +11,12 @@
       "type": "转入",
       "amount": 1000,
       "description": "追加投资"
+    },
+    {
+      "date": "2026-06-18",
+      "type": "转入",
+      "amount": 2000,
+      "description": "追加投资"
     }
   ]
 }

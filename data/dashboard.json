@@ -287,16 +287,28 @@
       "totalInvestment": 621452.89
     }
   },
-  "2624": {
+  "2625": {
     "USD": {
-      "totalAssets": 59273.88,
-      "totalMarketValue": 4877.7,
+      "totalAssets": 59166.25,
+      "totalMarketValue": 4430.51,
       "totalInvestment": 55169.3
     },
     "CNY": {
-      "totalAssets": 406103.09,
-      "totalMarketValue": 474201,
-      "totalInvestment": 621452.89
+      "totalAssets": 360104.11,
+      "totalMarketValue": 426692,
+      "totalInvestment": 623452.89
+    }
+  },
+  "2626": {
+    "USD": {
+      "totalAssets": 59166.25,
+      "totalMarketValue": 4430.51,
+      "totalInvestment": 55169.3
+    },
+    "CNY": {
+      "totalAssets": 360104.11,
+      "totalMarketValue": 426692,
+      "totalInvestment": 623452.89
     }
   }
 }

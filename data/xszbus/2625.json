@@ -1,0 +1,20 @@
+{
+  "totalAssets": 43274.38,
+  "totalMarketValue": 4078.52,
+  "updateDate": "2026-06-28 22:52",
+  "holdings": [
+    {
+      "name": "RXRX",
+      "weight": 3.78
+    },
+    {
+      "name": "RXRX CALL 260618 5",
+      "weight": 1.01
+    },
+    {
+      "name": "晶泰控股",
+      "weight": 13.79
+    }
+  ],
+  "weeklyTransactions": []
+}
