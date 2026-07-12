@@ -20,12 +20,5 @@
       "weight": 0.33
     }
   ],
-  "weeklyTransactions": [
-    {
-      "date": "2026-07-08",
-      "type": "买入",
-      "stockName": "SpaceX",
-      "price": 149
-    }
-  ]
+  "weeklyTransactions": []
 }

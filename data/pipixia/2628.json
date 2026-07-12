@@ -16,12 +16,5 @@
       "weight": 2
     }
   ],
-  "weeklyTransactions": [
-    {
-      "date": "2026-07-07",
-      "type": "买入",
-      "stockName": "中公教育",
-      "price": 2.14
-    }
-  ]
+  "weeklyTransactions": []
 }

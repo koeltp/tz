@@ -1,12 +1,14 @@
 {
-  "totalAssets": 15929.64,
-  "totalMarketValue": 379.99,
-  "updateDate": "2026-07-5 19:52",
-  "holdings": [
+  "totalAssets": 15935.71,
+  "totalMarketValue": 0,
+  "updateDate": "2026-07-12 20:31",
+  "holdings": [],
+  "weeklyTransactions": [
     {
-      "name": "RXRX",
-      "weight": 2.21
+      "date": "2026-07-08",
+      "type": "卖出",
+      "stockName": "RXRX",
+      "price": 3.78
     }
-  ],
-  "weeklyTransactions": []
+  ]
 }
