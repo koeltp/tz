@@ -1,24 +1,59 @@
 {
-  "totalAssets": 43641.64,
-  "totalMarketValue": 4539.62,
-  "updateDate": "2026-07-12 20:31",
+  "totalAssets": 42694.21,
+  "totalMarketValue": 8447.1,
+  "updateDate": "2026-07-19 21:10",
   "holdings": [
     {
       "name": "RXRX",
-      "weight": 4.9
+      "weight": 14.46
     },
     {
       "name": "RXRX CALL 260618 5",
-      "weight": 0.54
+      "weight": 0.29
     },
     {
       "name": "晶泰控股",
-      "weight": 4.63
+      "weight": 4.29
     },
     {
       "name": "SpaceX",
-      "weight": 0.33
+      "weight": 0.58
+    },
+    {
+      "name": "Rocket Lab",
+      "weight": 0.16
     }
   ],
-  "weeklyTransactions": []
+  "weeklyTransactions": [
+    {
+      "date": "2026-07-17",
+      "type": "买入",
+      "stockName": "RXRX",
+      "price": 2.94
+    },
+    {
+      "date": "2026-07-16",
+      "type": "买入",
+      "stockName": "SpaceX",
+      "price": 125.2
+    },
+    {
+      "date": "2026-07-16",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 68.7
+    },
+    {
+      "date": "2026-07-16",
+      "type": "买入",
+      "stockName": "RXRX",
+      "price": 3.2
+    },
+    {
+      "date": "2026-07-14",
+      "type": "买入",
+      "stockName": "RXRX",
+      "price": 3.26
+    }
+  ]
 }

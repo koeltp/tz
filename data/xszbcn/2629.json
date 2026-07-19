@@ -32,18 +32,5 @@
       "weight": 0.3
     }
   ],
-  "weeklyTransactions": [
-    {
-      "date": "2026-07-13",
-      "type": "中签",
-      "stockName": "肇民发债",
-      "price": 100
-    },
-    {
-      "date": "2026-07-17",
-      "type": "中签",
-      "stockName": "曙26发债",
-      "price": 2.14
-    }
-  ]
+  "weeklyTransactions": []
 }
