@@ -17,6 +17,24 @@
             "type": "转入",
             "amount": 30000,
             "description": "增加投资"
+        },
+        {
+            "date": "2026-07-20",
+            "type": "转入",
+            "amount": 5000,
+            "description": "增加投资"
+        },
+        {
+            "date": "2026-07-17",
+            "type": "转入",
+            "amount": 1000,
+            "description": "增加投资"
+        },
+        {
+            "date": "2026-07-13",
+            "type": "转入",
+            "amount": 1000,
+            "description": "增加投资"
         }
     ]
 }

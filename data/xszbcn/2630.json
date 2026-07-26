@@ -36,18 +36,5 @@
       "weight": 1.2
     }
   ],
-  "weeklyTransactions": [
-    {
-      "date": "2026-07-24",
-      "type": "买入",
-      "stockName": "口子窖",
-      "price": 19.12
-    },
-    {
-      "date": "2026-07-20",
-      "type": "中签",
-      "stockName": "长鑫申购",
-      "price": 8.66
-    }
-  ]
+  "weeklyTransactions": []
 }

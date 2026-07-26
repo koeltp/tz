@@ -28,24 +28,5 @@
       "weight": 13
     }
   ],
-  "weeklyTransactions": [
-    {
-      "date": "2026-07-24",
-      "type": "买入",
-      "stockName": "Rocket Lab",
-      "price": 64.5
-    },
-    {
-      "date": "2026-07-22",
-      "type": "买入",
-      "stockName": "腾讯控股",
-      "price": 453
-    },
-    {
-      "date": "2026-07-20",
-      "type": "买入",
-      "stockName": "晶泰控股",
-      "price": 7.15
-    }
-  ]
+  "weeklyTransactions": []
 }
