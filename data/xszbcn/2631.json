@@ -1,0 +1,32 @@
+{
+  "totalAssets": 413057.88,
+  "totalMarketValue": 447761,
+  "updateDate": "2026-08-01 22:40",
+  "holdings": [
+    {
+      "name": "老板电器",
+      "weight": 1.9
+    },
+    {
+      "name": "口子窖",
+      "weight": 81.7
+    },
+    {
+      "name": "玲珑轮胎",
+      "weight": 14.9
+    },
+    {
+      "name": "欧派家居",
+      "weight": 8.4
+    },
+    {
+      "name": "华帝股份",
+      "weight": 1.2
+    },
+    {
+      "name": "曙26发债",
+      "weight": 0.3
+    }
+  ],
+  "weeklyTransactions": []
+}

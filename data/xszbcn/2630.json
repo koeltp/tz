@@ -1,7 +1,7 @@
 {
-  "totalAssets": 353822.62,
-  "totalMarketValue": 422642,
-  "updateDate": "2026-07-26 22:29",
+  "totalAssets": 413057.88,
+  "totalMarketValue": 447761,
+  "updateDate": "2026-08-01 22:40",
   "holdings": [
     {
       "name": "老板电器",
@@ -26,15 +26,26 @@
     {
       "name": "曙26发债",
       "weight": 0.3
-    },
-    {
-      "name": "肇民发债",
-      "weight": 0.3
-    },
-    {
-      "name": "长鑫申购",
-      "weight": 1.2
     }
   ],
-  "weeklyTransactions": []
+  "weeklyTransactions": [
+    {
+      "date": "2026-07-30",
+      "type": "卖出",
+      "stockName": "口子窖",
+      "price": 20.2
+    },
+    {
+      "date": "2026-07-27",
+      "type": "卖出",
+      "stockName": "N长鑫",
+      "price": 44.8
+    },
+    {
+      "date": "2026-07-27",
+      "type": "卖出",
+      "stockName": "肇民发债",
+      "price": 169.2
+    }
+  ]
 }
