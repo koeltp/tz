@@ -1,6 +1,6 @@
 {
-  "totalAssets": 413057.88,
-  "totalMarketValue": 447761,
+  "totalAssets": 396424.53,
+  "totalMarketValue": 439356,
   "updateDate": "2026-08-08 10:07",
   "holdings": [
     {
@@ -9,7 +9,7 @@
     },
     {
       "name": "口子窖",
-      "weight": 81.7
+      "weight": 84.8
     },
     {
       "name": "玲珑轮胎",
@@ -17,15 +17,11 @@
     },
     {
       "name": "欧派家居",
-      "weight": 8.4
+      "weight": 8
     },
     {
       "name": "华帝股份",
       "weight": 1.2
-    },
-    {
-      "name": "曙26发债",
-      "weight": 0.3
     }
   ],
   "weeklyTransactions": []
