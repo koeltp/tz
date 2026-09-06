@@ -35,6 +35,12 @@
             "type": "转入",
             "amount": 1000,
             "description": "增加投资"
+        },
+        {
+            "date": "2026-08-13",
+            "type": "转入",
+            "amount": 30000,
+            "description": "增加投资"
         }
     ]
 }

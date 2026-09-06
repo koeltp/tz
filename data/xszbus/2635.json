@@ -1,0 +1,163 @@
+{
+  "totalAssets": 45837.07,
+  "totalMarketValue": 18076.48,
+  "updateDate": "2026-09-06 10:07",
+  "holdings": [
+    {
+      "name": "RXRX",
+      "weight": 6.35
+    },
+    {
+      "name": "RXRX CALL 260618 5",
+      "weight": 0.63
+    },
+    {
+      "name": "Rocket Lab",
+      "weight": 4.21
+    },
+    {
+      "name": "RKLB CALL 261219 100",
+      "weight": 0.57
+    },
+    {
+      "name": "晶泰控股",
+      "weight": 2.04
+    },
+    {
+      "name": "南方两倍做多海力士",
+      "weight": 0.98
+    },
+    {
+      "name": "腾讯控股",
+      "weight": 24.65
+    }
+  ],
+  "weeklyTransactions": [
+    {
+      "date": "2026-09-03",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 62.9
+    },
+    {
+      "date": "2026-09-03",
+      "type": "买入",
+      "stockName": "腾讯控股",
+      "price": 435
+    },
+    {
+      "date": "2026-08-28",
+      "type": "卖出",
+      "stockName": "SpaceX",
+      "price": 139.44
+    },
+    {
+      "date": "2026-08-28",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 65
+    },
+    {
+      "date": "2026-08-28",
+      "type": "买入",
+      "stockName": "RKLB Call 261218 100",
+      "price": 3.15
+    },
+    {
+      "date": "2026-08-27",
+      "type": "卖出",
+      "stockName": "RXRX",
+      "price": 3.53
+    },
+    {
+      "date": "2026-08-27",
+      "type": "买入",
+      "stockName": "晶泰控股",
+      "price": 7.435
+    },
+    {
+      "date": "2026-08-27",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 67.3
+    },
+    {
+      "date": "2026-08-19",
+      "type": "买入",
+      "stockName": "南方两倍做多海力士",
+      "price": 30.5
+    },
+    {
+      "date": "2026-08-13",
+      "type": "卖出",
+      "stockName": "南方两倍做多海力士",
+      "price": 34
+    },
+    {
+      "date": "2026-08-13",
+      "type": "卖出",
+      "stockName": "晶泰控股",
+      "price": 8.37
+    },
+    {
+      "date": "2026-08-13",
+      "type": "买入",
+      "stockName": "腾讯控股",
+      "price": 442.8
+    },
+    {
+      "date": "2026-08-12",
+      "type": "卖出",
+      "stockName": "RXRX",
+      "price": 3.3
+    },
+    {
+      "date": "2026-08-11",
+      "type": "卖出",
+      "stockName": "Rocket Lab",
+      "price": 80.5
+    },
+    {
+      "date": "2026-08-12",
+      "type": "卖出",
+      "stockName": "南方两倍做多海力士",
+      "price": 32.68
+    },
+    {
+      "date": "2026-08-12",
+      "type": "买入",
+      "stockName": "SpaceX",
+      "price": 132
+    },
+    {
+      "date": "2026-08-12",
+      "type": "卖出",
+      "stockName": "SpaceX",
+      "price": 135.2
+    },
+    {
+      "date": "2026-08-11",
+      "type": "买入",
+      "stockName": "南方两倍做多海力士",
+      "price": 27.5
+    },
+    {
+      "date": "2026-08-11",
+      "type": "卖出",
+      "stockName": "晶泰控股",
+      "price": 8.43
+    },
+    {
+      "date": "2026-08-11",
+      "type": "买入",
+      "stockName": "南方两倍做多海力士",
+      "price": 27.9
+    },
+    {
+      "date": "2026-08-10",
+      "type": "卖出",
+      "stockName": "晶泰控股",
+      "price": 8.1
+    }
+  ]
+}

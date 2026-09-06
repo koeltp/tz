@@ -1,0 +1,37 @@
+{
+  "totalAssets": 16182.39,
+  "totalMarketValue": 1285.19,
+  "updateDate": "2026-09-06 20:20",
+  "holdings": [
+    {
+      "name": "Rocket Lab",
+      "weight": 7.94
+    }
+  ],
+  "weeklyTransactions": [
+    {
+      "date": "2026-09-03",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 62.9
+    },
+    {
+      "date": "2026-08-28",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 65
+    },
+    {
+      "date": "2026-08-25",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 66.8
+    },
+    {
+      "date": "2026-08-12",
+      "type": "卖出",
+      "stockName": "RXRX",
+      "price": 3.3
+    }
+  ]
+}

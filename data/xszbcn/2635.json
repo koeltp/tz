@@ -1,0 +1,41 @@
+{
+  "totalAssets": 412180.25,
+  "totalMarketValue": 42900,
+  "updateDate": "2026-09-06 10:07",
+  "holdings": [
+    {
+      "name": "老板电器",
+      "weight": 1.9
+    },
+    {
+      "name": "口子窖",
+      "weight": 84.8
+    },
+    {
+      "name": "玲珑轮胎",
+      "weight": 14.9
+    },
+    {
+      "name": "欧派家居",
+      "weight": 8
+    },
+    {
+      "name": "华帝股份",
+      "weight": 1.2
+    }
+  ],
+  "weeklyTransactions": [
+    {
+      "date": "2026-09-04",
+      "type": "卖出",
+      "stockName": "口子窖",
+      "price": 19.53
+    },
+    {
+      "date": "2026-08-31",
+      "type": "买入",
+      "stockName": "华域汽车",
+      "price": 18.9
+    }
+  ]
+}
