@@ -1,0 +1,24 @@
+{
+  "totalAssets": 45542.77,
+  "totalMarketValue": 22614.1,
+  "updateDate": "2026-09-20 21:50",
+  "holdings": [
+    {
+      "name": "Rocket Lab",
+      "weight": 21.23
+    },
+    {
+      "name": "RKLB CALL 261219 100",
+      "weight": 0.48
+    },
+    {
+      "name": "晶泰控股",
+      "weight": 4.49
+    },
+    {
+      "name": "腾讯控股",
+      "weight": 23.45
+    }
+  ],
+  "weeklyTransactions": []
+}

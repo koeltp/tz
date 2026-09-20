@@ -1,57 +1,55 @@
 {
-  "totalAssets": 45006.3,
-  "totalMarketValue": 21927.34,
-  "updateDate": "2026-09-13 20:20",
+  "totalAssets": 45542.77,
+  "totalMarketValue": 22614.1,
+  "updateDate": "2026-09-20 21:50",
   "holdings": [
     {
-      "name": "RXRX",
-      "weight": 6.35
-    },
-    {
-      "name": "RXRX CALL 260618 5",
-      "weight": 0.63
-    },
-    {
       "name": "Rocket Lab",
-      "weight": 4.21
+      "weight": 21.23
     },
     {
       "name": "RKLB CALL 261219 100",
-      "weight": 0.57
+      "weight": 0.48
     },
     {
       "name": "晶泰控股",
-      "weight": 2.04
+      "weight": 4.49
     },
     {
       "name": "腾讯控股",
-      "weight": 24.65
+      "weight": 23.45
     }
   ],
   "weeklyTransactions": [
     {
-      "date": "2026-09-10",
+      "date": "2026-09-18",
       "type": "买入",
       "stockName": "Rocket Lab",
-      "price": 61.7
+      "price": 64.1
     },
     {
-      "date": "2026-09-11",
-      "type": "买入",
-      "stockName": "晶泰控股",
-      "price": 6.85
-    },
-    {
-      "date": "2026-09-10",
-      "type": "买入",
-      "stockName": "Rocket Lab",
-      "price": 62.68
-    },
-    {
-      "date": "2026-09-08",
+      "date": "2026-09-18",
       "type": "卖出",
       "stockName": "南方两倍做多海力士",
-      "price": 42.32
+      "price": 42.98
+    },
+    {
+      "date": "2026-09-17",
+      "type": "卖出",
+      "stockName": "RXRX Call 261120 5",
+      "price": 0.16
+    },
+    {
+      "date": "2026-09-17",
+      "type": "卖出",
+      "stockName": "RXRX",
+      "price": 3.52
+    },
+    {
+      "date": "2026-09-17",
+      "type": "买入",
+      "stockName": "南方两倍做多海力士",
+      "price": 37
     }
   ]
 }
