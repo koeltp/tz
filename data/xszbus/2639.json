@@ -1,0 +1,16 @@
+{
+  "totalAssets": 47964.23,
+  "totalMarketValue": 10514.36,
+  "updateDate": "2026-09-26 22:50",
+  "holdings": [
+    {
+      "name": "Rocket Lab",
+      "weight": 10.31
+    },
+    {
+      "name": "腾讯控股",
+      "weight": 11.61
+    }
+  ],
+  "weeklyTransactions": []
+}

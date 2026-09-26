@@ -1556,5 +1556,57 @@
       "totalAssets": 11179.39,
       "adjustedInvestment": 13000
     }
+  },
+  "2638": {
+    "tptz": {
+      "siteName": "TP投资",
+      "currency": "USD",
+      "totalReturn": -8324.74,
+      "totalChange": -32.8,
+      "weekChange": 911.9,
+      "weekChangePercent": 5.65,
+      "totalAssets": 17053.04,
+      "adjustedInvestment": 25377.78
+    },
+    "gshtz": {
+      "siteName": "格式化投资",
+      "currency": "CNY",
+      "totalReturn": -2550.91,
+      "totalChange": -8.5,
+      "weekChange": 304.11,
+      "weekChangePercent": 1.12,
+      "totalAssets": 27449.09,
+      "adjustedInvestment": 30000
+    },
+    "xszbcn": {
+      "siteName": "新市资本_CN",
+      "currency": "CNY",
+      "totalReturn": -241619.25,
+      "totalChange": -39.01,
+      "weekChange": 1380.04,
+      "weekChangePercent": 0.37,
+      "totalAssets": 377833.64,
+      "adjustedInvestment": 619452.89
+    },
+    "xszbus": {
+      "siteName": "新市资本_US",
+      "currency": "USD",
+      "totalReturn": 18172.71,
+      "totalChange": 61,
+      "weekChange": 2421.46,
+      "weekChangePercent": 5.32,
+      "totalAssets": 47964.23,
+      "adjustedInvestment": 29791.52
+    },
+    "pipixia": {
+      "siteName": "皮皮虾",
+      "currency": "CNY",
+      "totalReturn": -1844.51,
+      "totalChange": -14.19,
+      "weekChange": -23.9,
+      "weekChangePercent": -0.21,
+      "totalAssets": 11155.49,
+      "adjustedInvestment": 13000
+    }
   }
 }
