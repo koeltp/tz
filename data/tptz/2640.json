@@ -1,12 +1,33 @@
 {
-  "totalAssets": 17045.42,
-  "totalMarketValue": 1256.64,
-  "updateDate": "2026-10-04 21:00",
+  "totalAssets": 17012.33,
+  "totalMarketValue": 7023.89,
+  "updateDate": "2026-10-11 23:20",
   "holdings": [
     {
       "name": "Rocket Lab",
-      "weight": 15.69
+      "weight": 6.82
+    },
+    {
+      "name": "腾讯控股",
+      "weight": 31.82
+    },
+    {
+      "name": "南方东英SK海力士每日杠杆最多(2x)产品",
+      "weight": 2.65
     }
   ],
-  "weeklyTransactions": []
+  "weeklyTransactions": [
+    {
+      "date": "2026-10-09",
+      "type": "买入",
+      "stockName": "腾讯控股",
+      "price": 418
+    },
+    {
+      "date": "2026-10-07",
+      "type": "买入",
+      "stockName": "南方东英SK海力士每日杠杆最多(2x)产品",
+      "price": 37.14
+    }
+  ]
 }
