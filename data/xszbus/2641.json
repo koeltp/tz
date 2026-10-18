@@ -1,24 +1,115 @@
 {
-  "totalAssets": 47435.82,
-  "totalMarketValue": 19891.39,
-  "updateDate": "2026-10-11 23:20",
+  "totalAssets": 42004.12,
+  "totalMarketValue": 38294.48,
+  "updateDate": "2026-10-18 21:20",
   "holdings": [
     {
       "name": "Rocket Lab",
-      "weight": 12.51
+      "weight": 65.15
+    },
+    {
+      "name": "RKLB CALL 270115 80",
+      "weight": 0.29
+    },
+    {
+      "name": "RKLB CALL 270319 70",
+      "weight": 1.01
+    },
+    {
+      "name": "五一视界",
+      "weight": 4.96
     },
     {
       "name": "腾讯控股",
-      "weight": 22.82
+      "weight": 12.67
     },
     {
       "name": "晶泰控股",
-      "weight": 3.75
+      "weight": 3.59
     },
     {
       "name": "南方东英SK海力士每日杠杆最多(2x)产品",
-      "weight": 2.85
+      "weight": 3.49
     }
   ],
-  "weeklyTransactions": []
+  "weeklyTransactions": [
+    {
+      "date": "2026-10-16",
+      "type": "买入",
+      "stockName": "RKLB CALL 270115 80",
+      "price": 1.26
+    },
+    {
+      "date": "2026-10-16",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 51.7
+    },
+    {
+      "date": "2026-10-16",
+      "type": "买入",
+      "stockName": "RKLB CALL 270319 70",
+      "price": 4.6
+    },
+    {
+      "date": "2026-10-16",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 52.55
+    },
+    {
+      "date": "2026-10-16",
+      "type": "买入",
+      "stockName": "五一视界",
+      "price": 40.9
+    },
+    {
+      "date": "2026-10-14",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 55.85
+    },
+    {
+      "date": "2026-10-14",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 61
+    },
+    {
+      "date": "2026-10-13",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 63.3
+    },
+    {
+      "date": "2026-10-13",
+      "type": "买入",
+      "stockName": "南方东英SK海力士每日杠杆最多(2x)产品",
+      "price": 26.26
+    },
+    {
+      "date": "2026-10-12",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 65.83
+    },
+    {
+      "date": "2026-10-12",
+      "type": "买入",
+      "stockName": "五一视界",
+      "price": 47.44
+    },
+    {
+      "date": "2026-10-12",
+      "type": "卖出",
+      "stockName": "腾讯控股",
+      "price": 428
+    },
+    {
+      "date": "2026-10-12",
+      "type": "卖出",
+      "stockName": "南方东英SK海力士每日杠杆最多(2x)产品",
+      "price": 32.4
+    }
+  ]
 }

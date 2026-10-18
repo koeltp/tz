@@ -14,6 +14,10 @@
     {
       "name": "中公教育",
       "weight": 2
+    },
+    {
+      "name": "华域汽车",
+      "weight": 9.5
     }
   ],
   "weeklyTransactions": []
