@@ -1,0 +1,24 @@
+{
+  "totalAssets": 8026.04,
+  "totalMarketValue": 15597,
+  "updateDate": "2026-10-25 20:35",
+  "holdings": [
+    {
+      "name": "玲珑轮胎",
+      "weight": 76.3
+    },
+    {
+      "name": "口子窖",
+      "weight": 11
+    },
+    {
+      "name": "中公教育",
+      "weight": 1.1
+    },
+    {
+      "name": "华域汽车",
+      "weight": 9.5
+    }
+  ],
+  "weeklyTransactions": []
+}

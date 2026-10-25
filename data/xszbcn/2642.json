@@ -1,7 +1,7 @@
 {
-  "totalAssets": 387743.74,
-  "totalMarketValue": 410023,
-  "updateDate": "2026-10-18 21:20",
+  "totalAssets": 379820.23,
+  "totalMarketValue": 416356,
+  "updateDate": "2026-10-25 20:35",
   "holdings": [
     {
       "name": "老板电器",
@@ -22,7 +22,18 @@
     {
       "name": "华帝股份",
       "weight": 1.2
+    },
+    {
+      "name": "中控技术(融资)",
+      "weight": 4.1
     }
   ],
-  "weeklyTransactions": []
+  "weeklyTransactions": [
+    {
+      "date": "2026-10-20",
+      "type": "买入",
+      "stockName": "中控技术(融资)",
+      "price": 72.84
+    }
+  ]
 }

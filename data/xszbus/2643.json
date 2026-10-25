@@ -1,0 +1,51 @@
+{
+  "totalAssets": 44038.48,
+  "totalMarketValue": 35090.75,
+  "updateDate": "2026-10-25 20:35",
+  "holdings": [
+    {
+      "name": "Rocket Lab",
+      "weight": 65.15
+    },
+    {
+      "name": "RKLB CALL 270115 80",
+      "weight": 0.29
+    },
+    {
+      "name": "RKLB CALL 270319 70",
+      "weight": 1.01
+    },
+    {
+      "name": "五一视界",
+      "weight": 4.96
+    },
+    {
+      "name": "晶泰控股",
+      "weight": 3.59
+    },
+    {
+      "name": "南方东英SK海力士每日杠杆最多(2x)产品",
+      "weight": 3.49
+    }
+  ],
+  "weeklyTransactions": [
+    {
+      "date": "2026-10-20",
+      "type": "卖出",
+      "stockName": "五一视界",
+      "price": 52.35
+    },
+    {
+      "date": "2026-10-20",
+      "type": "买入",
+      "stockName": "五一视界",
+      "price": 51.95
+    },
+    {
+      "date": "2026-10-14",
+      "type": "卖出",
+      "stockName": "腾讯控股",
+      "price": 410.4
+    }
+  ]
+}
