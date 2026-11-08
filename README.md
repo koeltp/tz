@@ -34,7 +34,10 @@ node js/weekly-returns-summary.js
 ```bash
 node js/sitemap.js
 ```
+``` python
+py -m http.server 8000
 
+```
 该脚本会自动读取data目录下的所有周报JSON文件，并生成包含以下页面的sitemap.xml：
 - 首页（index.html）
 - 时光机页面（timeline.html）

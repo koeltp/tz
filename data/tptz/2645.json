@@ -1,0 +1,24 @@
+{
+  "totalAssets": 14980.78,
+  "totalMarketValue": 16935.7,
+  "updateDate": "2026-11-08 19:30",
+  "holdings": [
+    {
+      "name": "Rocket Lab",
+      "weight": 6.82
+    },
+    {
+      "name": "2倍做多COIN ETF",
+      "weight": 48.29
+    },
+    {
+      "name": "南方东英SK海力士每日杠杆最多(2x)产品",
+      "weight": 7.47
+    },
+    {
+      "name": "晶泰控股",
+      "weight": 5.22
+    }
+  ],
+  "weeklyTransactions": []
+}
