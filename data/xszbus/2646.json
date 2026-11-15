@@ -1,0 +1,87 @@
+{
+  "totalAssets": 47876.89,
+  "totalMarketValue": 41971.57,
+  "updateDate": "2026-11-15 21:30",
+  "holdings": [
+    {
+      "name": "Rocket Lab",
+      "weight": 54.65
+    },
+    {
+      "name": "RKLB CALL 270319 70",
+      "weight": 1.63
+    },
+    {
+      "name": "五一视界",
+      "weight": 5.35
+    },
+    {
+      "name": "晶泰控股",
+      "weight": 4.69
+    },
+    {
+      "name": "南方东英SK海力士每日杠杆最多(2x)产品",
+      "weight": 4.27
+    },
+    {
+      "name": "SpaceX",
+      "weight": 17.08
+    }
+  ],
+  "weeklyTransactions": [
+    {
+      "date": "2026-11-13",
+      "type": "买入",
+      "stockName": "晶泰控股",
+      "price": 5.85
+    },
+    {
+      "date": "2026-11-12",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 64
+    },
+    {
+      "date": "2026-11-12",
+      "type": "卖出",
+      "stockName": "Rocket Lab",
+      "price": 65.5
+    },
+    {
+      "date": "2026-11-12",
+      "type": "卖出",
+      "stockName": "英伟达",
+      "price": 159.83
+    },
+    {
+      "date": "2026-11-12",
+      "type": "买入",
+      "stockName": "英伟达",
+      "price": 163.73
+    },
+    {
+      "date": "2026-11-11",
+      "type": "买入",
+      "stockName": "Rocket Lab",
+      "price": 64.5
+    },
+    {
+      "date": "2026-11-11",
+      "type": "卖出",
+      "stockName": "Rocket Lab",
+      "price": 66.36
+    },
+    {
+      "date": "2026-11-11",
+      "type": "卖出",
+      "stockName": "RKLB CALL 270115 80",
+      "price": 3.5
+    },
+    {
+      "date": "2026-11-10",
+      "type": "卖出",
+      "stockName": "Rocket Lab",
+      "price": 58.02
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
-  "totalAssets": 397352.90,
-  "totalMarketValue": 401968,
-  "updateDate": "2026-11-08 19:30",
+  "totalAssets": 377647.84,
+  "totalMarketValue": 394057,
+  "updateDate": "2026-11-15 21:30",
   "holdings": [
     {
       "name": "老板电器",
@@ -26,10 +26,10 @@
   ],
   "weeklyTransactions": [
     {
-      "date": "2026-11-03",
-      "type": "卖出",
-      "stockName": "欧派家居",
-      "price": 32
+      "date": "2026-11-13",
+      "type": "买入",
+      "stockName": "中控技术(融资)",
+      "price": 58.86
     }
   ]
 }
