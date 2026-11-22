@@ -1,0 +1,77 @@
+{
+  "totalAssets": 40195.85,
+  "totalMarketValue": 35530.85,
+  "updateDate": "2026-11-22 21:30",
+  "holdings": [
+    {
+      "name": "Rocket Lab",
+      "weight": 51.53
+    },
+    {
+      "name": "RKLB CALL 270319 70",
+      "weight": 1.29
+    },
+    {
+      "name": "RKLB CALL 270115 80",
+      "weight": 0.47
+    },
+    {
+      "name": "SpaceX",
+      "weight": 19.34
+    },
+    {
+      "name": "RXRX",
+      "weight": 0.62
+    },
+    {
+      "name": "五一视界",
+      "weight": 5.66
+    },
+    {
+      "name": "晶泰控股",
+      "weight": 4.57
+    },
+    {
+      "name": "南方东英SK海力士每日杠杆最多(2x)产品",
+      "weight": 4.9
+    }
+  ],
+  "weeklyTransactions": [
+    {
+      "date": "2026-11-20",
+      "type": "买入",
+      "stockName": "RKLB CALL 270319 70",
+      "price": 2.7
+    },
+    {
+      "date": "2026-11-20",
+      "type": "买入",
+      "stockName": "RKLB CALL 270115 80",
+      "price": 0.45
+    },
+    {
+      "date": "2026-11-18",
+      "type": "买入",
+      "stockName": "RKLB CALL 270115 80",
+      "price": 0.81
+    },
+    {
+      "date": "2026-11-17",
+      "type": "买入",
+      "stockName": "RKLB CALL 270115 80",
+      "price": 159.83
+    },
+    {
+      "date": "2026-11-17",
+      "type": "买入",
+      "stockName": "RXRX",
+      "price": 2.85
+    },
+    {
+      "date": "2026-11-16",
+      "type": "买入",
+      "stockName": "南方东英SK海力士每日杠杆最多(2x)产品",
+      "price": 13.4
+    }
+  ]
+}
